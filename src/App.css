@@ -1,0 +1,47 @@
+/* ============================================ */
+/* ANIMACIONES PERSONALIZADAS */
+/* ============================================ */
+
+/* Animación de entrada: Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplicar animación al contenedor principal */
+.portfolio-container {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Animación para items de lista (escalonada) */
+@keyframes fadeInUpStagger {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glow effect para elementos interactivos */
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(94, 234, 212, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.1);
+  }
+}
+
+/* Animación de cambio de color suave en hover */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
