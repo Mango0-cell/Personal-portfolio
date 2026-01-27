@@ -1,14 +1,33 @@
 {
-  "nav": { "home": "Home", "experience": "Experience", "projects": "Projects", "about": "About", "contact": "Contact" },
+  "nav": {
+    "home": "Home",
+    "experience": "Experience",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
   "hero": {
     "role": "Full Stack Developer",
     "bio": "Motivated Software Developer committed to continuous learning and active participation in development projects for both Backend and Frontend. Capable of creating scalable, user-centered solutions."
   },
-  "sections": { "experience": "Work Experience", "projects": "Featured Projects", "about": "About Me" },
+  "sections": {
+    "experience": "Work Experience",
+    "projects": "Featured Projects",
+    "about": "About Me"
+  },
   "experience": {
-    "job1": { "title": "Full Stack Developer", "description": "Development of modern web applications with focus on scalable architectures." },
-    "job2": { "title": "Full Stack Developer", "description": "Participation in high-impact projects using modern web ecosystem technologies." },
-    "job3": { "title": "Full Stack Developer", "description": "Implementation of complex technical solutions with focus on UX and performance." }
+    "job1": {
+      "title": "Full Stack Developer",
+      "description": "Development of modern web applications with focus on scalable architectures and development best practices."
+    },
+    "job2": {
+      "title": "Full Stack Developer",
+      "description": "Participation in high-impact projects using modern web ecosystem technologies."
+    },
+    "job3": {
+      "title": "Full Stack Developer",
+      "description": "Implementation of complex technical solutions with focus on user experience and performance."
+    }
   },
   "projects": {
     "navidad": {
@@ -38,5 +57,8 @@
     "paragraph2": "I love learning new technologies and facing complex challenges. In my free time, I contribute to open source projects to learn from the knowledge with the community.",
     "paragraph3": "My goal is to create applications that not only work well, but also provide an exceptional user experience."
   },
-  "footer": { "copyright": "© {{year}} Eduardo Meneses. All rights reserved.", "madeWith": "Made with React + Vite + Tailwind CSS" }
+  "footer": {
+    "copyright": "© {{year}} Eduardo Meneses. All rights reserved.",
+    "madeWith": "Made with React + Vite + Tailwind CSS"
+  }
 }

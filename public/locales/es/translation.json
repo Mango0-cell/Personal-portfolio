@@ -1,14 +1,33 @@
 {
-  "nav": { "home": "Inicio", "experience": "Experiencia", "projects": "Proyectos", "about": "Sobre mí", "contact": "Contacto" },
+  "nav": {
+    "home": "Inicio",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
   "hero": {
     "role": "Desarrollador Full Stack",
     "bio": "Desarrollador de Software motivado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto en Backend como en Frontend. Capaz de crear soluciones escalables y centradas en el usuario."
   },
-  "sections": { "experience": "Experiencia Laboral", "projects": "Proyectos Destacados", "about": "Sobre Mí" },
+  "sections": {
+    "experience": "Experiencia Laboral",
+    "projects": "Proyectos Destacados",
+    "about": "Sobre Mí"
+  },
   "experience": {
-    "job1": { "title": "Full Stack Developer", "description": "Desarrollo de aplicaciones web modernas con enfoque en arquitecturas escalables." },
-    "job2": { "title": "Full Stack Developer", "description": "Participación en proyectos de alto impacto usando tecnologías del ecosistema web moderno." },
-    "job3": { "title": "Full Stack Developer", "description": "Implementación de soluciones técnicas complejas con foco en UX y performance." }
+    "job1": {
+      "title": "Full Stack Developer",
+      "description": "Desarrollo de aplicaciones web modernas con enfoque en arquitecturas escalables y mejores prácticas de desarrollo."
+    },
+    "job2": {
+      "title": "Full Stack Developer",
+      "description": "Participación en proyectos de alto impacto utilizando tecnologías modernas del ecosistema web."
+    },
+    "job3": {
+      "title": "Full Stack Developer",
+      "description": "Implementación de soluciones técnicas complejas con foco en la experiencia del usuario y rendimiento."
+    }
   },
   "projects": {
     "navidad": {
@@ -38,5 +57,8 @@
     "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento con la comunidad.",
     "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario."
   },
-  "footer": { "copyright": "© {{year}} Eduardo Meneses. Todos los derechos reservados.", "madeWith": "Hecho con React + Vite + Tailwind CSS" }
+  "footer": {
+    "copyright": "© {{year}} Eduardo Meneses. Todos los derechos reservados.",
+    "madeWith": "Hecho con React + Vite + Tailwind CSS"
+  }
 }
