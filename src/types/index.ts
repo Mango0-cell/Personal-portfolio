@@ -5,13 +5,29 @@ export interface SocialLink {
 }
 
 export interface ExperienceItem {
+  id: string;
+  translationKey: string;
+  companyUrl?: string;
+}
+
+export interface ProjectItem {
+  id: string;
+  translationKey: string;
+  image?: string;
+  link?: string;
+  github?: string;
+  techStack?: string[];
+}
+
+// Formato del contenido traducible
+export interface ExperienceCopy {
   date: string;
   title: string;
   company: string;
   description: string;
 }
 
-export interface ProjectItem {
+export interface ProjectCopy {
   title: string;
   description: string;
 }
@@ -34,8 +50,8 @@ export interface TranslationResources {
     projects: string;
     about: string;
   };
-  experience: ExperienceItem[];
-  projects: ProjectItem[];
+  experience: ExperienceCopy[];
+  projects: ProjectCopy[];
   about: {
     title: string;
     paragraphs: string[];

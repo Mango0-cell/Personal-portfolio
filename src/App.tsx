@@ -2,9 +2,11 @@
 // IMPORTACIONES
 // ============================================
 import { useEffect, useRef, useState } from 'react';
+import type { ComponentType } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Mail, Github, Linkedin, Twitter, Instagram, ExternalLink, Calendar, ArrowRight, Menu, X } from 'lucide-react';
-import { portfolioData, type SocialLink } from './data';
+import { experiences, portfolioData, projects } from './data';
+import type { SocialLink } from './types';
 import LanguageSwitcher from './LanguageSwitcher';
 import './App.css';
 
@@ -160,6 +162,10 @@ function App() {
   const aboutReveal = useScrollReveal();
   const { t } = useTranslation();
 
+  // Evita map sobre t() si no retorna array
+  const aboutParagraphsRaw = t('about.paragraphs', { returnObjects: true });
+  const aboutParagraphs = Array.isArray(aboutParagraphsRaw) ? aboutParagraphsRaw : [];
+
   // ============================================
   // CONSTANTE DE ESTILO ESTANDARIZADO
   // ============================================
@@ -202,7 +208,7 @@ function App() {
               
               {/* Descripción/Bio */}
               <p className="text-lg md:text-xl text-zinc-400 leading-relaxed mb-10 max-w-lg">
-                {portfolioData.bio}
+                {t('hero.bio')}
               </p>
               
               {/* Enlaces de redes sociales */}
@@ -247,11 +253,17 @@ function App() {
             <div className="absolute left-1/2 top-0 h-full w-px bg-zinc-800 -translate-x-1/2" aria-hidden />
 
             <div className="space-y-14 w-full max-w-4xl">
-              {portfolioData.experience.map((exp, index) => {
+              {experiences.map((exp, index) => {
                 const isLeft = index % 2 === 0;
+                const translationBase = exp.translationKey;
+                const title = t(`${translationBase}.title`);
+                const description = t(`${translationBase}.description`);
+                const company = t(`${translationBase}.company`);
+                const date = t(`${translationBase}.date`);
+
                 return (
                   <div
-                    key={index}
+                    key={exp.id}
                     className={`relative flex ${isLeft ? 'justify-start' : 'justify-end'} w-full`}
                   >
                     <div 
@@ -265,12 +277,12 @@ function App() {
                         {/* Fecha con icono */}
                         <div className="flex items-center gap-2 text-sm text-zinc-500 mb-3 group-hover:text-teal-400 smooth-transition">
                           <Calendar size={14} />
-                          <time className="font-medium">{exp.date}</time>
+                          <time className="font-medium">{date}</time>
                         </div>
                         
                         {/* Título del trabajo */}
                         <h3 className="text-2xl font-semibold text-zinc-100 mb-2 group-hover:text-teal-400 smooth-transition flex items-center gap-2">
-                          {exp.title}
+                          {title}
                           <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 smooth-transition" />
                         </h3>
                         
@@ -282,16 +294,16 @@ function App() {
                             rel="noopener noreferrer"
                             className="text-zinc-400 smooth-transition hover:text-teal-400 inline-flex items-center gap-2 mb-4 font-medium"
                           >
-                            {exp.company}
+                            {company}
                             <ExternalLink size={14} className="opacity-0 group-hover:opacity-100" />
                           </a>
                         ) : (
-                          <p className="text-zinc-400 mb-4 font-medium">{exp.company}</p>
+                          <p className="text-zinc-400 mb-4 font-medium">{company}</p>
                         )}
                         
                         {/* Descripción */}
                         <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 smooth-transition">
-                          {exp.description}
+                          {description}
                         </p>
                       </article>
                     </div>
@@ -323,69 +335,76 @@ function App() {
           {/* Grid centrado */}
           <div className="flex flex-col items-center w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
-              {portfolioData.projects.map((project, index) => (
-                <article 
-                  key={index}
-                  className="group bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-600 smooth-transition shadow-lg"
-                >
-                  {/* Placeholder de imagen del proyecto */}
-                  <div className="h-48 w-full bg-zinc-800 group-hover:bg-zinc-700 smooth-transition" />
+              {projects.map((project) => {
+                const translationBase = project.translationKey;
+                const title = t(`${translationBase}.title`);
+                const description = t(`${translationBase}.description`);
+                const techStack = project.techStack || [];
 
-                  <div className="p-12 md:p-16 space-y-5">
-                    {/* Título del proyecto */}
-                    <h3 className="text-xl font-semibold text-zinc-100 group-hover:text-teal-400 smooth-transition flex items-center gap-2">
-                      <span>{project.title}</span>
-                      <ArrowRight 
-                        size={18} 
-                        className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 smooth-transition" 
-                      />
-                    </h3>
+                return (
+                  <article 
+                    key={project.id}
+                    className="group bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-600 smooth-transition shadow-lg"
+                  >
+                    {/* Placeholder de imagen del proyecto */}
+                    <div className="h-48 w-full bg-zinc-800 group-hover:bg-zinc-700 smooth-transition" />
 
-                    {/* Descripción */}
-                    <p className="text-zinc-400 leading-relaxed">
-                      {project.description}
-                    </p>
+                    <div className="p-12 md:p-16 space-y-5">
+                      {/* Título del proyecto */}
+                      <h3 className="text-xl font-semibold text-zinc-100 group-hover:text-teal-400 smooth-transition flex items-center gap-2">
+                        <span>{title}</span>
+                        <ArrowRight 
+                          size={18} 
+                          className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 smooth-transition" 
+                        />
+                      </h3>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span 
-                          key={tag}
-                          className="text-xs px-3 py-1.5 bg-zinc-800 text-zinc-300 rounded-full border border-zinc-700"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                      {/* Descripción */}
+                      <p className="text-zinc-400 leading-relaxed">
+                        {description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {techStack.map((tag) => (
+                          <span 
+                            key={tag}
+                            className="text-xs px-3 py-1.5 bg-zinc-800 text-zinc-300 rounded-full border border-zinc-700"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Enlaces */}
+                      <div className="pt-3 flex gap-4">
+                        {project.link && (
+                          <a 
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-medium text-teal-400 hover:text-teal-300 smooth-transition inline-flex items-center gap-2"
+                          >
+                            Demo
+                            <ExternalLink size={14} />
+                          </a>
+                        )}
+                        {project.github && (
+                          <a 
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-medium text-zinc-300 hover:text-teal-300 smooth-transition inline-flex items-center gap-2"
+                          >
+                            <Github size={14} />
+                            Code
+                          </a>
+                        )}
+                      </div>
                     </div>
-
-                    {/* Enlaces */}
-                    <div className="pt-3 flex gap-4">
-                      {project.link && (
-                        <a 
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-medium text-teal-400 hover:text-teal-300 smooth-transition inline-flex items-center gap-2"
-                        >
-                          Ver proyecto
-                          <ExternalLink size={14} />
-                        </a>
-                      )}
-                      {project.github && (
-                        <a 
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-medium text-zinc-300 hover:text-teal-300 smooth-transition inline-flex items-center gap-2"
-                        >
-                          <Github size={14} />
-                          Código
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </article>
-              ))}
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -411,13 +430,13 @@ function App() {
           {/* Contenido centrado en grid */}
           <div className="flex flex-col items-center w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full max-w-4xl">
-              {/* Columna Izquierda: Placeholder de foto */}
+              {/* Columna Izquierda: Foto de perfil */}
               <div className="w-full h-full">
                 <div className="aspect-[4/5] w-full bg-zinc-800 rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
-                  {portfolioData.about.image ? (
+                  {portfolioData.profileImage ? (
                     <img 
-                      src={portfolioData.about.image}
-                      alt="Profile"
+                      src={portfolioData.profileImage}
+                      alt={portfolioData.name}
                       className="w-full h-full object-cover"
                     />
                   ) : (
@@ -432,7 +451,7 @@ function App() {
               {/* Columna Derecha: Tarjeta de contenido */}
               <div className="bg-zinc-900/50 p-12 md:p-16 rounded-2xl border border-zinc-800 shadow-lg space-y-6">
                 <div className="space-y-4">
-                  {portfolioData.about.paragraphs.map((paragraph, index) => (
+                  {aboutParagraphs.map((paragraph, index) => (
                     <p 
                       key={index}
                       className="text-zinc-300 leading-relaxed"
@@ -465,10 +484,10 @@ function App() {
         {/* ============================================ */}
         <footer className="w-full max-w-7xl mx-auto px-6 py-12 border-t border-zinc-800 text-center text-zinc-500 text-sm space-y-4">
           <p className="smooth-transition hover:text-teal-400">
-            © 2024 {portfolioData.name}. Todos los derechos reservados.
+            {t('footer.copyright', { year: new Date().getFullYear(), name: portfolioData.name })}
           </p>
           <p className="text-xs text-zinc-600">
-            Hecho con React + Vite + Tailwind CSS
+            {t('footer.madeWith')}
           </p>
         </footer>
       </main>
@@ -481,7 +500,7 @@ function App() {
 // ============================================
 // Renderiza iconos de redes con efectos hover mejorados
 function SocialIcon({ social }: { social: SocialLink }) {
-  const iconMap: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number }>> = {
+  const iconMap: Record<string, ComponentType<{ size?: number; strokeWidth?: number }>> = {
     Github,
     Linkedin,
     Twitter,
