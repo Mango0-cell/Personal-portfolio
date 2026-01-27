@@ -72,20 +72,19 @@ function Navbar() {
   ];
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-50 smooth-transition ${
-        scrolled 
-          ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 shadow-lg' 
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 smooth-transition ${scrolled
+          ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 shadow-lg'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       {/* Contenedor centrado del navbar */}
       <div className="w-full flex justify-center px-6">
         <div className="w-full max-w-7xl flex items-center justify-between py-6">
-          
+
           {/* Logo / Nombre - Izquierda */}
-          <a 
-            href="#home" 
+          <a
+            href="#home"
             className="text-2xl font-bold text-zinc-100 hover:text-teal-400 smooth-transition"
           >
             {portfolioData.name.split(' ')[0]}
@@ -181,18 +180,17 @@ function App() {
 
       {/* Container principal: contenedor de todas las secciones */}
       <main className="portfolio-container w-full flex flex-col items-center pt-20">
-        
+
         {/* ============================================ */}
         {/* SECCIÓN: HERO / ENCABEZADO */}
         {/* ============================================ */}
-        <header 
+        <header
           id="home"
           ref={heroReveal.ref as React.RefObject<HTMLElement>}
-          className={`${sectionClass} transition-all duration-1000 ease-out transform ${
-            heroReveal.isVisible 
-              ? 'opacity-100 translate-y-0' 
+          className={`${sectionClass} transition-all duration-1000 ease-out transform ${heroReveal.isVisible
+              ? 'opacity-100 translate-y-0'
               : 'opacity-20 translate-y-6'
-          }`}
+            }`}
         >
           {/* Layout de dos columnas: Foto + Contenido */}
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -203,20 +201,20 @@ function App() {
               <h1 className="text-6xl md:text-7xl font-bold mb-6 text-zinc-50 leading-tight">
                 {portfolioData.name}
               </h1>
-              
+
               {/* Rol/Profesión */}
               <p className="text-2xl md:text-3xl font-semibold text-teal-400 mb-8 smooth-transition hover:text-teal-300">
                 {t('hero.role')}
               </p>
-              
+
               {/* Descripción/Bio */}
               <p className="text-lg md:text-xl text-zinc-400 leading-relaxed mb-10 max-w-lg">
                 {t('hero.bio')}
               </p>
-              
+
               {/* Enlaces de redes sociales */}
               <div className="flex gap-8 items-center pt-6">
-                <a 
+                <a
                   href={`mailto:${portfolioData.email}`}
                   className="smooth-transition text-zinc-400 hover:text-teal-400 hover:scale-125 p-3 rounded-lg hover:bg-zinc-800/50"
                   aria-label="Email"
@@ -236,21 +234,20 @@ function App() {
         {/* ============================================ */}
         {/* SECCIÓN: EXPERIENCIA LABORAL */}
         {/* ============================================ */}
-        <section 
+        <section
           id="experience"
           ref={experienceReveal.ref as React.RefObject<HTMLElement>}
-          className={`${sectionClass} transition-all duration-1000 ease-out transform ${
-            experienceReveal.isVisible 
-              ? 'opacity-100 translate-y-0' 
+          className={`${sectionClass} transition-all duration-1000 ease-out transform ${experienceReveal.isVisible
+              ? 'opacity-100 translate-y-0'
               : 'opacity-20 translate-y-6'
-          }`}
+            }`}
         >
           {/* Título alineado a la izquierda */}
           <h2 className="text-3xl font-bold mb-12 text-zinc-50 flex items-center gap-3 text-left self-start w-full">
             <span className="smooth-transition">{t('sections.experience')}</span>
             <div className="flex-1 h-px bg-gradient-to-r from-teal-500/50 to-transparent"></div>
           </h2>
-          
+
           {/* Timeline centrado */}
           <div className="relative w-full flex flex-col items-center">
             <div className="absolute left-1/2 top-0 h-full w-px bg-zinc-800 -translate-x-1/2" aria-hidden />
@@ -267,12 +264,12 @@ function App() {
                     key={exp.id}
                     className={`relative flex ${isLeft ? 'justify-start' : 'justify-end'} w-full`}
                   >
-                    <div 
+                    <div
                       className={`relative w-full md:w-[48%] ${isLeft ? 'md:pr-10' : 'md:pl-10'}`}
                     >
                       <div className="absolute top-6 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-teal-400 border-4 border-zinc-950 shadow-md" aria-hidden />
 
-                      <article 
+                      <article
                         className="group bg-zinc-900 border border-zinc-800 rounded-2xl p-12 md:p-16 w-full shadow-lg hover:border-teal-500/50 hover:shadow-teal-500/10 smooth-transition"
                       >
                         {/* Título del trabajo */}
@@ -280,7 +277,7 @@ function App() {
                           {title}
                           <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 smooth-transition" />
                         </h3>
-                        
+
                         {/* Descripción */}
                         <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 smooth-transition">
                           {description}
@@ -297,21 +294,20 @@ function App() {
         {/* ============================================ */}
         {/* SECCIÓN: PROYECTOS */}
         {/* ============================================ */}
-        <section 
+        <section
           id="projects"
           ref={projectsReveal.ref as React.RefObject<HTMLElement>}
-          className={`${sectionClass} transition-all duration-1000 ease-out transform ${
-            projectsReveal.isVisible 
-              ? 'opacity-100 translate-y-0' 
+          className={`${sectionClass} transition-all duration-1000 ease-out transform ${projectsReveal.isVisible
+              ? 'opacity-100 translate-y-0'
               : 'opacity-20 translate-y-6'
-          }`}
+            }`}
         >
           {/* Título alineado a la izquierda */}
           <h2 className="text-3xl font-bold mb-12 text-zinc-50 flex items-center gap-3 text-left self-start w-full">
             <span className="smooth-transition">{t('sections.projects')}</span>
             <div className="flex-1 h-px bg-gradient-to-r from-teal-500/50 to-transparent"></div>
           </h2>
-          
+
           {/* Grid centrado */}
           <div className="flex flex-col items-center w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
@@ -322,7 +318,7 @@ function App() {
                 const techStack = project.techStack || [];
 
                 return (
-                  <article 
+                  <article
                     key={project.id}
                     className="group bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-zinc-600 smooth-transition shadow-lg"
                   >
@@ -333,9 +329,9 @@ function App() {
                       {/* Título del proyecto */}
                       <h3 className="text-xl font-semibold text-zinc-100 group-hover:text-teal-400 smooth-transition flex items-center gap-2">
                         <span>{title}</span>
-                        <ArrowRight 
-                          size={18} 
-                          className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 smooth-transition" 
+                        <ArrowRight
+                          size={18}
+                          className="opacity-0 group-hover:opacity-100 group-hover:translate-x-1 smooth-transition"
                         />
                       </h3>
 
@@ -347,7 +343,7 @@ function App() {
                       {/* Tags */}
                       <div className="flex flex-wrap gap-2">
                         {techStack.map((tag) => (
-                          <span 
+                          <span
                             key={tag}
                             className="text-xs px-3 py-1.5 bg-zinc-800 text-zinc-300 rounded-full border border-zinc-700"
                           >
@@ -359,7 +355,7 @@ function App() {
                       {/* Enlaces */}
                       <div className="pt-3 flex gap-4">
                         {project.link && (
-                          <a 
+                          <a
                             href={project.link}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -370,7 +366,7 @@ function App() {
                           </a>
                         )}
                         {project.github && (
-                          <a 
+                          <a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -392,21 +388,20 @@ function App() {
         {/* ============================================ */}
         {/* SECCIÓN: SOBRE MÍ */}
         {/* ============================================ */}
-        <section 
+        <section
           id="about"
           ref={aboutReveal.ref as React.RefObject<HTMLElement>}
-          className={`${sectionClass} transition-all duration-1000 ease-out transform ${
-            aboutReveal.isVisible 
-              ? 'opacity-100 translate-y-0' 
+          className={`${sectionClass} transition-all duration-1000 ease-out transform ${aboutReveal.isVisible
+              ? 'opacity-100 translate-y-0'
               : 'opacity-20 translate-y-6'
-          }`}
+            }`}
         >
           {/* Título alineado a la izquierda */}
           <h2 className="text-3xl font-bold mb-12 text-zinc-50 flex items-center gap-3 text-left self-start w-full">
             <span className="smooth-transition">{t('sections.about')}</span>
             <div className="flex-1 h-px bg-gradient-to-r from-teal-500/50 to-transparent"></div>
           </h2>
-          
+
           {/* Contenido centrado en grid */}
           <div className="flex flex-col items-center w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full max-w-4xl">
@@ -414,15 +409,14 @@ function App() {
               <div className="w-full h-full">
                 <div className="aspect-[4/5] w-full bg-zinc-800 rounded-2xl overflow-hidden shadow-xl flex items-center justify-center">
                   {portfolioData.profileImage ? (
-                    <img 
+                    <img
                       src={portfolioData.profileImage}
                       alt={portfolioData.name}
                       className="w-full h-full object-cover"
                     />
                   ) : (
                     <div className="text-zinc-500 text-center px-6">
-                      <p className="text-lg font-semibold">Tu Foto Aquí</p>
-                      <p className="text-sm text-zinc-400">Usa un retrato 4:5 para un look editorial</p>
+                      <p className="text-lg font-semibold">Foto</p>
                     </div>
                   )}
                 </div>
@@ -432,7 +426,7 @@ function App() {
               <div className="bg-zinc-900/50 p-12 md:p-16 rounded-2xl border border-zinc-800 shadow-lg space-y-6">
                 <div className="space-y-4">
                   {aboutParagraphs.map((paragraph, index) => (
-                    <p 
+                    <p
                       key={index}
                       className="text-zinc-300 leading-relaxed"
                     >
@@ -443,7 +437,7 @@ function App() {
 
                 {/* Redes sociales en About */}
                 <div className="flex gap-6 pt-4">
-                  <a 
+                  <a
                     href={`mailto:${portfolioData.email}`}
                     className="smooth-transition text-zinc-400 hover:text-teal-400 hover:scale-110 p-3 rounded-lg hover:bg-zinc-800/60"
                     aria-label="Email"
@@ -486,11 +480,11 @@ function SocialIcon({ social }: { social: SocialLink }) {
     Twitter,
     Instagram,
   };
-  
+
   const Icon = iconMap[social.icon] || ExternalLink;
-  
+
   return (
-    <a 
+    <a
       href={social.url}
       target="_blank"
       rel="noopener noreferrer"

@@ -18,15 +18,15 @@
   "experience": {
     "job1": {
       "title": "Full Stack Developer",
-      "description": "Desarrollo de aplicaciones web modernas con enfoque en arquitecturas escalables y mejores prácticas de desarrollo."
+      "description": "Desarrollo"
     },
     "job2": {
       "title": "Full Stack Developer",
-      "description": "Participación en proyectos de alto impacto utilizando tecnologías modernas del ecosistema web."
+      "description": "Desarrollo"
     },
     "job3": {
       "title": "Full Stack Developer",
-      "description": "Implementación de soluciones técnicas complejas con foco en la experiencia del usuario y rendimiento."
+      "description": "Desarrollo"
     }
   },
   "projects": {

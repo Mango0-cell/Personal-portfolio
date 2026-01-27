@@ -3,7 +3,7 @@ import type { ExperienceItem, PortfolioData, ProjectItem, SocialLink } from './t
 export const portfolioData: PortfolioData = {
     name: 'Eduardo Meneses',
     email: 'eduardo.meneses@utp.edu.co',
-    profileImage: '/src/assets/profile-picture.jpeg',
+    profileImage: '/public/assets/profile-picture.jpeg',
     socialLinks: [
         {
             name: 'GitHub',
