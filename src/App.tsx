@@ -162,9 +162,12 @@ function App() {
   const aboutReveal = useScrollReveal();
   const { t } = useTranslation();
 
-  // Evita map sobre t() si no retorna array
-  const aboutParagraphsRaw = t('about.paragraphs', { returnObjects: true });
-  const aboutParagraphs = Array.isArray(aboutParagraphsRaw) ? aboutParagraphsRaw : [];
+  // Lee los párrafos individuales del JSON
+  const aboutParagraphs = [
+    t('about.paragraph1'),
+    t('about.paragraph2'),
+    t('about.paragraph3')
+  ];
 
   // ============================================
   // CONSTANTE DE ESTILO ESTANDARIZADO
@@ -258,8 +261,6 @@ function App() {
                 const translationBase = exp.translationKey;
                 const title = t(`${translationBase}.title`);
                 const description = t(`${translationBase}.description`);
-                const company = t(`${translationBase}.company`);
-                const date = t(`${translationBase}.date`);
 
                 return (
                   <div
@@ -274,32 +275,11 @@ function App() {
                       <article 
                         className="group bg-zinc-900 border border-zinc-800 rounded-2xl p-12 md:p-16 w-full shadow-lg hover:border-teal-500/50 hover:shadow-teal-500/10 smooth-transition"
                       >
-                        {/* Fecha con icono */}
-                        <div className="flex items-center gap-2 text-sm text-zinc-500 mb-3 group-hover:text-teal-400 smooth-transition">
-                          <Calendar size={14} />
-                          <time className="font-medium">{date}</time>
-                        </div>
-                        
                         {/* Título del trabajo */}
                         <h3 className="text-2xl font-semibold text-zinc-100 mb-2 group-hover:text-teal-400 smooth-transition flex items-center gap-2">
                           {title}
                           <ArrowRight size={18} className="opacity-0 group-hover:opacity-100 smooth-transition" />
                         </h3>
-                        
-                        {/* Empresa con enlace */}
-                        {exp.companyUrl ? (
-                          <a 
-                            href={exp.companyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-zinc-400 smooth-transition hover:text-teal-400 inline-flex items-center gap-2 mb-4 font-medium"
-                          >
-                            {company}
-                            <ExternalLink size={14} className="opacity-0 group-hover:opacity-100" />
-                          </a>
-                        ) : (
-                          <p className="text-zinc-400 mb-4 font-medium">{company}</p>
-                        )}
                         
                         {/* Descripción */}
                         <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 smooth-transition">

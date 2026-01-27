@@ -1,72 +1,42 @@
 {
-  "nav": {
-    "home": "Home",
-    "experience": "Experience",
-    "projects": "Projects",
-    "about": "About Me",
-    "contact": "Contact"
-  },
+  "nav": { "home": "Home", "experience": "Experience", "projects": "Projects", "about": "About", "contact": "Contact" },
   "hero": {
     "role": "Full Stack Developer",
-    "bio": "Passionate about building modern web experiences. Focused on React, TypeScript, and performant interfaces."
+    "bio": "Motivated Software Developer committed to continuous learning and active participation in development projects for both Backend and Frontend. Capable of creating scalable, user-centered solutions."
   },
-  "sections": {
-    "experience": "My Work Experience",
-    "projects": "Projects",
-    "about": "About Me"
+  "sections": { "experience": "Work Experience", "projects": "Featured Projects", "about": "About Me" },
+  "experience": {
+    "job1": { "title": "Full Stack Developer", "description": "Development of modern web applications with focus on scalable architectures." },
+    "job2": { "title": "Full Stack Developer", "description": "Participation in high-impact projects using modern web ecosystem technologies." },
+    "job3": { "title": "Full Stack Developer", "description": "Implementation of complex technical solutions with focus on UX and performance." }
   },
-  "experience": [
-    {
-      "date": "Jan, 2024 - Present",
-      "title": "Full Stack Developer",
-      "company": "Tech Company",
-      "description": "Development of modern web applications using React, TypeScript and Node.js. Implementation of scalable architectures and maintenance of legacy code. Collaboration with multidisciplinary teams to deliver high-quality products."
+  "projects": {
+    "navidad": {
+      "title": "Armando la Navidad",
+      "description": "Developed an interactive game using exclusively CSS (without frameworks or JavaScript) to handle layouts, typography and colors. Created complex animations and smooth transitions, as well as real randomization logic and CSS transformations, ensuring responsive design."
     },
-    {
-      "date": "Jun, 2023 - Dec, 2023",
-      "title": "Frontend Developer",
-      "company": "Startup Inc",
-      "description": "Creation of intuitive and responsive user interfaces. Optimization of web performance and improvement of user experience. Work with modern technologies like React, Tailwind CSS and Vite."
+    "news": {
+      "title": "News Portal",
+      "description": "Built a modern, responsive web application that consumes the News API to display real-time information. Optimized performance through RTK Query for efficient cache management and global application state, and designed an advanced user interface with synchronized light/dark mode."
     },
-    {
-      "date": "Jan, 2022 - May, 2023",
-      "title": "Junior Developer",
-      "company": "Digital Agency",
-      "description": "Participation in diverse web projects. Learning of best development practices and teamwork. Implementation of designs and functionalities according to client specifications."
+    "ui_clone": {
+      "title": "UI Web Cloning",
+      "description": "Applied fundamental UX/UI principles to faithfully replicate an existing web interface, focusing on the precision of spacing, typography and visual hierarchy."
+    },
+    "kanban": {
+      "title": "My Full Stack App - Kanban",
+      "description": "Developed a Kanban-style Full Stack web application with secure authentication, complete CRUD management and Markdown content editing. Implemented advanced interactive features such as drag and drop and real-time chat with WebSockets. REST API with NestJS and TypeORM, Docker and deployment on AWS EC2."
+    },
+    "portfolio": {
+      "title": "Personal Portfolio",
+      "description": "Built my personal portfolio using React, Tailwind CSS implementing i18next, react-i18next and i18next-browser-languagedetector."
     }
-  ],
-  "projects": [
-    {
-      "title": "E-commerce Platform",
-      "description": "Complete e-commerce platform with payment gateway, inventory management and admin panel."
-    },
-    {
-      "title": "Task Management App",
-      "description": "Task management application with real-time collaboration features, notifications and statistics."
-    },
-    {
-      "title": "Portfolio Generator",
-      "description": "Tool that allows developers to create custom portfolios using predefined templates."
-    },
-    {
-      "title": "Project Alpha",
-      "description": "A brief placeholder description to visualize the layout of 5 cards."
-    },
-    {
-      "title": "Project Beta",
-      "description": "A brief placeholder description to visualize the layout of 5 cards."
-    }
-  ],
+  },
   "about": {
     "title": "About Me",
-    "paragraphs": [
-      "I am a passionate developer fascinated by technology and innovation. Since an early age, I have been captivated by the world of software development and how it can transform people's lives.",
-      "I love learning new technologies and facing complex challenges. In my free time, I contribute to open source projects to learn from the community's knowledge.",
-      "My goal is to create applications that not only work well, but also provide an exceptional user experience."
-    ]
+    "paragraph1": "I am a developer passionate about technology and innovation. Since an early age I have been fascinated by the world of software development.",
+    "paragraph2": "I love learning new technologies and facing complex challenges. In my free time, I contribute to open source projects to learn from the knowledge with the community.",
+    "paragraph3": "My goal is to create applications that not only work well, but also provide an exceptional user experience."
   },
-  "footer": {
-    "copyright": "© 2024 {{name}}. All rights reserved.",
-    "madeWith": "Made with React + Vite + Tailwind CSS"
-  }
+  "footer": { "copyright": "© {{year}} Eduardo Meneses. All rights reserved.", "madeWith": "Made with React + Vite + Tailwind CSS" }
 }

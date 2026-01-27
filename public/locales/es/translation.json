@@ -1,72 +1,42 @@
 {
-  "nav": {
-    "home": "Inicio",
-    "experience": "Experiencia",
-    "projects": "Proyectos",
-    "about": "Acerca de mí",
-    "contact": "Contacto"
-  },
+  "nav": { "home": "Inicio", "experience": "Experiencia", "projects": "Proyectos", "about": "Sobre mí", "contact": "Contacto" },
   "hero": {
     "role": "Desarrollador Full Stack",
-    "bio": "Apasionado por crear experiencias web modernas. Enfocado en React, TypeScript e interfaces de alto rendimiento."
+    "bio": "Desarrollador de Software motivado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto en Backend como en Frontend. Capaz de crear soluciones escalables y centradas en el usuario."
   },
-  "sections": {
-    "experience": "Mi experiencia laboral",
-    "projects": "Proyectos",
-    "about": "Acerca de mí"
+  "sections": { "experience": "Experiencia Laboral", "projects": "Proyectos Destacados", "about": "Sobre Mí" },
+  "experience": {
+    "job1": { "title": "Full Stack Developer", "description": "Desarrollo de aplicaciones web modernas con enfoque en arquitecturas escalables." },
+    "job2": { "title": "Full Stack Developer", "description": "Participación en proyectos de alto impacto usando tecnologías del ecosistema web moderno." },
+    "job3": { "title": "Full Stack Developer", "description": "Implementación de soluciones técnicas complejas con foco en UX y performance." }
   },
-  "experience": [
-    {
-      "date": "Ene, 2024 - Presente",
-      "title": "Desarrollador Full Stack",
-      "company": "Tech Company",
-      "description": "Desarrollo de aplicaciones web modernas utilizando React, TypeScript y Node.js. Implementación de arquitecturas escalables y mantenimiento de código legacy. Colaboración con equipos multidisciplinarios para entregar productos de alta calidad."
+  "projects": {
+    "navidad": {
+      "title": "Armando la Navidad",
+      "description": "Desarrollé un juego interactivo utilizando exclusivamente CSS (sin frameworks ni JavaScript) para manejar layouts, tipografías y colores. Creé animaciones complejas y transiciones fluidas, así como una lógica de aleatoriedad real y transformaciones CSS, garantizando también un diseño responsivo."
     },
-    {
-      "date": "Jun, 2023 - Dic, 2023",
-      "title": "Desarrollador Frontend",
-      "company": "Startup Inc",
-      "description": "Creación de interfaces de usuario intuitivas y responsivas. Optimización de rendimiento web y mejora de la experiencia de usuario. Trabajo con tecnologías modernas como React, Tailwind CSS y Vite."
+    "news": {
+      "title": "Portal de Noticias",
+      "description": "Construí una aplicación web moderna y responsiva que consume la News API para mostrar información en tiempo real, optimicé el rendimiento mediante RTK Query para el manejo eficiente del caché y el estado global de la aplicación y diseñé una interfaz de usuario avanzada con modo claro/oscuro sincronizado."
     },
-    {
-      "date": "Ene, 2022 - May, 2023",
-      "title": "Desarrollador Junior",
-      "company": "Digital Agency",
-      "description": "Participación en proyectos web diversos. Aprendizaje de buenas prácticas de desarrollo y trabajo en equipo. Implementación de diseños y funcionalidades según especificaciones del cliente."
+    "ui_clone": {
+      "title": "Clonacion-de-UI-Web",
+      "description": "Apliqué principios fundamentales de UX/UI para replicar fielmente una interfaz web existente, enfocándome en la precisión de espaciados, tipografía y jerarquía visual."
+    },
+    "kanban": {
+      "title": "My Full Stack App - Kanban",
+      "description": "Desarrollé una aplicación web Full Stack tipo Kanban con autenticación segura, gestión CRUD completa y edición de contenido en Markdown. Implementé funcionalidades interactivas avanzadas como drag and drop y chat en tiempo real con WebSockets. API REST con NestJS y TypeORM, Docker y despliegue en AWS EC2."
+    },
+    "portfolio": {
+      "title": "Portafolio Personal",
+      "description": "Construí mi portafolio personal utilizando React, Tailwind CSS implementando i18next, react-i18next y i18next-browser-languagedetector."
     }
-  ],
-  "projects": [
-    {
-      "title": "Plataforma de E-commerce",
-      "description": "Plataforma de comercio electrónico completa con pasarela de pagos, gestión de inventario y panel de administración."
-    },
-    {
-      "title": "Aplicación de Gestión de Tareas",
-      "description": "Aplicación de gestión de tareas con funcionalidades de colaboración en tiempo real, notificaciones y estadísticas."
-    },
-    {
-      "title": "Generador de Portafolios",
-      "description": "Herramienta que permite a desarrolladores crear portafolios personalizados usando plantillas predefinidas."
-    },
-    {
-      "title": "Proyecto Alpha",
-      "description": "Una descripción breve de relleno para visualizar el layout de 5 tarjetas."
-    },
-    {
-      "title": "Proyecto Beta",
-      "description": "Una descripción breve de relleno para visualizar el layout de 5 tarjetas."
-    }
-  ],
+  },
   "about": {
-    "title": "Acerca de mí",
-    "paragraphs": [
-      "Soy un desarrollador apasionado por la tecnología y la innovación. Desde temprana edad me ha fascinado el mundo del desarrollo de software y cómo puede transformar la vida de las personas.",
-      "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento con la comunidad.",
-      "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario."
-    ]
+    "title": "Sobre mí",
+    "paragraph1": "Soy un desarrollador apasionado por la tecnología y la innovación. Desde temprana edad me ha fascinado el mundo del desarrollo de software.",
+    "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento con la comunidad.",
+    "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario."
   },
-  "footer": {
-    "copyright": "© 2024 {{name}}. Todos los derechos reservados.",
-    "madeWith": "Hecho con React + Vite + Tailwind CSS"
-  }
+  "footer": { "copyright": "© {{year}} Eduardo Meneses. Todos los derechos reservados.", "madeWith": "Hecho con React + Vite + Tailwind CSS" }
 }

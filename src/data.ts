@@ -28,60 +28,60 @@ export const portfolioData: PortfolioData = {
     ] as SocialLink[]
 };
 
-// Experiencia: solo datos estructurales + translationKey
+// Experiencia: solo datos estructurales + translationKey con claves de objeto
 export const experiences: ExperienceItem[] = [
     {
-        id: 'exp-1',
-        translationKey: 'experience.0',
+        id: 'job1',
+        translationKey: 'experience.job1',
         companyUrl: 'https://techcompany.com'
     },
     {
-        id: 'exp-2',
-        translationKey: 'experience.1',
+        id: 'job2',
+        translationKey: 'experience.job2',
         companyUrl: 'https://techcompany.com'
     },
     {
-        id: 'exp-3',
-        translationKey: 'experience.2',
+        id: 'job3',
+        translationKey: 'experience.job3',
         companyUrl: 'https://techcompany.com'
     }
 ];
 
-// Proyectos: datos estructurales + translationKey
+// Proyectos: datos estructurales + translationKey con claves de objeto
 export const projects: ProjectItem[] = [
     {
-        id: 'project-1',
-        translationKey: 'projects.0',
-        link: '#',
+        id: 'navidad',
+        translationKey: 'projects.navidad',
+        link: 'https://mango0-cell.github.io/Armando-la-Navidad-HTML-y-CSS-puro/',
         github: 'https://github.com/Mango0-cell/Armando-la-Navidad-HTML-y-CSS-puro',
-        techStack: ['HTML5', 'CSS3']
+        techStack: ['HTML5 Puro', 'CSS3']
     },
     {
-        id: 'project-2',
-        translationKey: 'projects.1',
+        id: 'news',
+        translationKey: 'projects.news',
         link: '#',
         github: 'https://github.com/Mango0-cell/Portal-de-Noticias',
-        techStack: ['TypeScript', 'React', 'Tailwind', 'CSS', 'RTK Query']
+        techStack: ['React', 'TypeScript', 'RTK Query', 'Tailwind CSS']
     },
     {
-        id: 'project-3',
-        translationKey: 'projects.2',
+        id: 'ui_clone',
+        translationKey: 'projects.ui_clone',
         link: '#',
         github: 'https://github.com/Mango0-cell/Clonacion-de-UI-Web',
-        techStack: ['Figma', 'UX/UI']
+        techStack: ['Figma', 'UX/UI', 'Web Design']
     },
     {
-        id: 'project-4',
-        translationKey: 'projects.3',
+        id: 'kanban',
+        translationKey: 'projects.kanban',
         link: '#',
         github: 'https://github.com/Mango0-cell/My-Full-Stack-App-Kanban',
-        techStack: ['Next.js', 'NestJS', 'TypeScript', 'Docker', 'AWS', 'React']
+        techStack: ['React', 'NestJS', 'TypeScript', 'Docker', 'AWS', 'WebSockets']
     },
     {
-        id: 'project-5',
-        translationKey: 'projects.4',
+        id: 'portfolio',
+        translationKey: 'projects.portfolio',
         link: '#',
         github: 'https://github.com/Mango0-cell/personal-portfolio',
-        techStack: ['i18n', 'React', 'Tailwind']
+        techStack: ['React', 'Tailwind CSS', 'i18n', 'Vite']
     }
 ];
