@@ -1,6 +1,6 @@
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { projects } from '../../data';
+import { projects } from '../../utils';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const sectionClass = 'w-full max-w-7xl mx-auto px-4 md:px-6 pt-20 pb-32 md:py-40 min-h-screen flex flex-col justify-center items-center gap-8 md:gap-12';
@@ -41,10 +41,6 @@ export function Projects() {
                       src={project.image}
                       alt={title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
-                      onError={(e) => {
-                        console.error('Error cargando imagen:', project.image);
-                        e.currentTarget.src = 'https://via.placeholder.com/400x300?text=No+Image';
-                      }}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-zinc-500">
@@ -53,7 +49,7 @@ export function Projects() {
                   )}
                 </div>
 
-                <div className="p-6 md:p-8 space-y-4 md:space-y-5">
+                <div className="p-4 space-y-3 md:space-y-4">
                   <h3 className="text-lg md:text-xl font-semibold text-zinc-100 group-hover:text-teal-400 transition-all duration-300 flex items-center gap-2">
                     <span>{title}</span>
                     <ArrowRight

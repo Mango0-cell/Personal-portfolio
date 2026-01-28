@@ -1,5 +1,5 @@
 import { Menu, X } from 'lucide-react';
-import { portfolioData } from '../../data';
+import { portfolioData } from '../../utils';
 import { LanguageSelector } from '../LanguageSelector';
 import { useNavigation } from '../../hooks/useNavigation';
 
@@ -35,15 +35,8 @@ export function Navbar() {
               </a>
             ))}
           </div>
-
-          <div className="hidden md:flex">
-            <LanguageSelector />
-          </div>
-
           <div className="flex items-center gap-3">
-            <div className="md:hidden">
-              <LanguageSelector />
-            </div>
+            <LanguageSelector />
             <button
               className="md:hidden text-zinc-300 hover:text-teal-400 transition-all duration-300 p-2 hover:bg-zinc-800/50 rounded-lg"
               onClick={toggleMenu}

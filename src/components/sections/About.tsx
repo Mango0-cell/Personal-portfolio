@@ -1,6 +1,6 @@
 import { Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { portfolioData } from '../../data';
+import { portfolioData } from '../../utils';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { SocialIcon } from '../ui/SocialIcon';
 
@@ -42,7 +42,7 @@ export function About() {
             </div>
           </div>
 
-          <div className="bg-zinc-900/50 p-6 md:p-12 lg:p-16 rounded-2xl border border-zinc-800 shadow-lg space-y-6 hover:border-teal-500/30 transition-all duration-300">
+          <div className="bg-zinc-900/50 p-6 md:p-12 lg:p-10 rounded-2xl border border-zinc-800 shadow-lg space-y-6 hover:border-teal-500/30 transition-all duration-300">
             <div className="space-y-3 md:space-y-4">
               {aboutParagraphs.map((paragraph, index) => (
                 <p key={index} className="text-sm md:text-base text-zinc-300 leading-relaxed">

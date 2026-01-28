@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { portfolioData } from '../../data';
+import { portfolioData } from '../../utils';
 
 export function Footer() {
   const { t } = useTranslation();

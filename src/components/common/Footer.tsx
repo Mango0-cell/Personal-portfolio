@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { portfolioData } from '../../data';
+import { portfolioData } from '../../utils';
 
 /**
  * Componente Footer

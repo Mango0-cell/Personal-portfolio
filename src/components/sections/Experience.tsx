@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { experiences } from '../../data';
+import { experiences } from '../../utils';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const sectionClass = 'w-full max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-40 min-h-screen flex flex-col justify-center items-center gap-8 md:gap-12';

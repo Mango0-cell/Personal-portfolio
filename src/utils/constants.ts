@@ -1,10 +1,9 @@
-import type { ExperienceItem, PortfolioData, ProjectItem, SocialLink } from './types';
-
-// Importar imágenes de proyectos
-import armandoNavidadImg from './assets/projects/ArmandoNavidad.png';
-import portalNoticiasImg from './assets/projects/PortalNoticias.png';
-import clonacionUIImg from './assets/projects/ClonacionUIWeb.png';
-import kanbanImg from './assets/projects/AppKanban.png';
+import armandoNavidadImg from '../assets/projects/ArmandoNavidad.png';
+import portalNoticiasImg from '../assets/projects/PortalNoticias.png';
+import clonacionUIImg from '../assets/projects/ClonacionUIWeb.png';
+import kanbanImg from '../assets/projects/AppKanban.png';
+import type { ExperienceItem, PortfolioData, ProjectItem, SocialLink } from '../types';
+  
 
 export const portfolioData: PortfolioData = {
     name: 'Eduardo Meneses',
