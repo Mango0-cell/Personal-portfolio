@@ -99,7 +99,7 @@ Editar archivos JSON:
 - `public/locales/en/translation.json` (Inglés)
 
 ### Para cambiar DATOS (URLs, emails, links):
-Editar `src/data.ts`:
+Editar `src/utils/constants.ts`:
 - `portfolioData`: Info personal
 - `companyUrls`: URLs de empresas
 - `projectUrls`: Links de proyectos
