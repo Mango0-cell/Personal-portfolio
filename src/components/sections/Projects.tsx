@@ -23,7 +23,7 @@ export function Projects() {
       </h2>
 
       <div className="flex flex-col items-center w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl">
           {projects.map((project) => {
             const translationBase = project.translationKey;
             const title = t(`${translationBase}.title`);
@@ -35,7 +35,23 @@ export function Projects() {
                 key={project.id}
                 className="group bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden hover:border-teal-500/50 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-teal-500/20"
               >
-                <div className="h-40 md:h-48 w-full bg-zinc-800 group-hover:bg-zinc-700 transition-all duration-300" />
+                <div className="h-40 md:h-48 w-full bg-zinc-800 group-hover:bg-zinc-700 transition-all duration-300 overflow-hidden">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-all duration-300"
+                      onError={(e) => {
+                        console.error('Error cargando imagen:', project.image);
+                        e.currentTarget.src = 'https://via.placeholder.com/400x300?text=No+Image';
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-zinc-500">
+                      <span>No image</span>
+                    </div>
+                  )}
+                </div>
 
                 <div className="p-6 md:p-8 space-y-4 md:space-y-5">
                   <h3 className="text-lg md:text-xl font-semibold text-zinc-100 group-hover:text-teal-400 transition-all duration-300 flex items-center gap-2">

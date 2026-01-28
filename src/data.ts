@@ -1,5 +1,11 @@
 import type { ExperienceItem, PortfolioData, ProjectItem, SocialLink } from './types';
 
+// Importar imágenes de proyectos
+import armandoNavidadImg from './assets/projects/ArmandoNavidad.png';
+import portalNoticiasImg from './assets/projects/PortalNoticias.png';
+import clonacionUIImg from './assets/projects/ClonacionUIWeb.png';
+import kanbanImg from './assets/projects/AppKanban.png';
+
 export const portfolioData: PortfolioData = {
     name: 'Eduardo Meneses',
     email: 'eduardo.meneses@utp.edu.co',
@@ -54,34 +60,32 @@ export const projects: ProjectItem[] = [
         translationKey: 'projects.navidad',
         link: 'https://mango0-cell.github.io/Armando-la-Navidad-HTML-y-CSS-puro/',
         github: 'https://github.com/Mango0-cell/Armando-la-Navidad-HTML-y-CSS-puro',
-        techStack: ['HTML5 Puro', 'CSS3']
+        techStack: ['HTML5 Puro', 'CSS3'],
+        image: armandoNavidadImg
     },
     {
         id: 'news',
         translationKey: 'projects.news',
         link: '#',
         github: 'https://github.com/Mango0-cell/Portal-de-Noticias',
-        techStack: ['React', 'TypeScript', 'RTK Query', 'Tailwind CSS']
+        techStack: ['React', 'TypeScript', 'RTK Query', 'Tailwind CSS'],
+        image: portalNoticiasImg
     },
     {
         id: 'ui_clone',
         translationKey: 'projects.ui_clone',
         link: '#',
         github: 'https://github.com/Mango0-cell/Clonacion-de-UI-Web',
-        techStack: ['Figma', 'UX/UI', 'Web Design']
+        techStack: ['Figma', 'UX/UI', 'Web Design'],
+        image: clonacionUIImg
     },
     {
         id: 'kanban',
         translationKey: 'projects.kanban',
         link: '#',
         github: 'https://github.com/Mango0-cell/My-Full-Stack-App-Kanban',
-        techStack: ['React', 'NestJS', 'TypeScript', 'Docker', 'AWS', 'WebSockets']
+        techStack: ['React', 'NestJS', 'TypeScript', 'Docker', 'AWS', 'WebSockets'],
+        image: kanbanImg
     },
-    {
-        id: 'portfolio',
-        translationKey: 'projects.portfolio',
-        link: '#',
-        github: 'https://github.com/Mango0-cell/personal-portfolio',
-        techStack: ['React', 'Tailwind CSS', 'i18n', 'Vite']
-    }
+    
 ];

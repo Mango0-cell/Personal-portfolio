@@ -1,7 +1,8 @@
 import { Menu, X } from 'lucide-react';
 import { portfolioData } from '../../data';
-import LanguageSwitcher from '../../LanguageSwitcher';
+import { LanguageSelector } from '../LanguageSelector';
 import { useNavigation } from '../../hooks/useNavigation';
+
 
 export function Navbar() {
   const { navLinks, isOpen, scrolled, toggleMenu, closeMenu } = useNavigation();
@@ -13,7 +14,7 @@ export function Navbar() {
       }`}
     >
       <div className="w-full flex justify-center px-4 md:px-6">
-        <div className="w-full max-w-7xl flex items-center justify-between py-4 md:py-6">
+        <div className="w-full max-w-6xl flex items-center justify-between py-4 md:py-3">
           <a
             href="#home"
             className="text-xl md:text-2xl font-bold text-zinc-100 hover:text-teal-400 transition-all duration-300"
@@ -36,12 +37,12 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex">
-            <LanguageSwitcher />
+            <LanguageSelector />
           </div>
 
           <div className="flex items-center gap-3">
             <div className="md:hidden">
-              <LanguageSwitcher />
+              <LanguageSelector />
             </div>
             <button
               className="md:hidden text-zinc-300 hover:text-teal-400 transition-all duration-300 p-2 hover:bg-zinc-800/50 rounded-lg"
@@ -68,7 +69,7 @@ export function Navbar() {
               </a>
             ))}
             <div className="pt-2">
-              <LanguageSwitcher />
+              <LanguageSelector />
             </div>
           </div>
         </div>

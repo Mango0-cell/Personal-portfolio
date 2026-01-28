@@ -8,7 +8,8 @@
   },
   "hero": {
     "role": "Full Stack Developer",
-    "bio": "Motivated Software Developer committed to continuous learning and active participation in development projects for both Backend and Frontend. Capable of creating scalable, user-centered solutions."
+    "bio": "Motivated Software Developer committed to continuous learning and active participation in development projects for both Backend and Frontend. Capable of creating scalable, user-centered solutions.",
+    "available": "Available to work"
   },
   "sections": {
     "experience": "Work Experience",

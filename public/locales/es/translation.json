@@ -8,7 +8,8 @@
   },
   "hero": {
     "role": "Desarrollador Full Stack",
-    "bio": "Desarrollador de Software motivado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto en Backend como en Frontend. Capaz de crear soluciones escalables y centradas en el usuario."
+    "bio": "Desarrollador de Software motivado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto en Backend como en Frontend. Capaz de crear soluciones escalables y centradas en el usuario.",
+    "available": "Disponible para trabajar"
   },
   "sections": {
     "experience": "Experiencia Laboral",

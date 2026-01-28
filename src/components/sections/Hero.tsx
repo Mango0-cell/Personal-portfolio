@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { portfolioData } from '../../data';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { SocialIcon } from '../ui/SocialIcon';
+import profilePhoto from '../../assets/photo-circle.jpeg';
 
 const sectionClass = 'w-full max-w-7xl mx-auto px-4 md:px-6 py-20 md:py-40 min-h-screen flex flex-col justify-center items-center gap-8 md:gap-12';
 
@@ -20,6 +21,22 @@ export function Hero() {
     >
       <div className="w-full flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center">
         <div className="flex flex-col justify-center md:justify-start w-full text-center md:text-left">
+          {/* Fila superior: Foto + Badge */}
+          <div className="flex items-center gap-4 mb-6 px-4 justify-center md:justify-start">
+            <img
+              src={profilePhoto}
+              alt={portfolioData.name}
+              className="w-16 h-16 rounded-full object-cover border-2 border-teal-400/50"
+            />
+            <a
+              href={`mailto:${portfolioData.email}`}
+              className="flex items-center gap-2 px-4 py-1 rounded-full border border-green-500/50 bg-green-500/10 text-green-400 text-sm font-medium transition-all duration-300 hover:scale-105 hover:bg-green-500/20"
+            >
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+              {t('hero.available') || 'Disponible para trabajar'}
+            </a>
+          </div>
+
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-zinc-50 leading-tight">
             {portfolioData.name}
           </h1>
