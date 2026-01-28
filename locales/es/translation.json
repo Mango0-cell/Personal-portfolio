@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "role": "Desarrollador Full Stack",
+    "bio": "Desarrollador de Software motivado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto en Backend como en Frontend. Capaz de crear soluciones escalables y centradas en el usuario."
+  },
+  "sections": {
+    "experience": "Experiencia Laboral",
+    "projects": "Proyectos Destacados",
+    "about": "Sobre Mí"
+  },
+  "experience": {
+    "job1": {
+      "title": "Full Stack Developer",
+      "description": "Desarrollo"
+    },
+    "job2": {
+      "title": "Full Stack Developer",
+      "description": "Desarrollo"
+    },
+    "job3": {
+      "title": "Full Stack Developer",
+      "description": "Desarrollo"
+    }
+  },
+  "projects": {
+    "navidad": {
+      "title": "Armando la Navidad",
+      "description": "Desarrollé un juego interactivo utilizando exclusivamente CSS (sin frameworks ni JavaScript) para manejar layouts, tipografías y colores. Creé animaciones complejas y transiciones fluidas, así como una lógica de aleatoriedad real y transformaciones CSS, garantizando también un diseño responsivo."
+    },
+    "news": {
+      "title": "Portal de Noticias",
+      "description": "Construí una aplicación web moderna y responsiva que consume la News API para mostrar información en tiempo real, optimicé el rendimiento mediante RTK Query para el manejo eficiente del caché y el estado global de la aplicación y diseñé una interfaz de usuario avanzada con modo claro/oscuro sincronizado."
+    },
+    "ui_clone": {
+      "title": "Clonacion-de-UI-Web",
+      "description": "Apliqué principios fundamentales de UX/UI para replicar fielmente una interfaz web existente, enfocándome en la precisión de espaciados, tipografía y jerarquía visual."
+    },
+    "kanban": {
+      "title": "My Full Stack App - Kanban",
+      "description": "Desarrollé una aplicación web Full Stack tipo Kanban con autenticación segura, gestión CRUD completa y edición de contenido en Markdown. Implementé funcionalidades interactivas avanzadas como drag and drop y chat en tiempo real con WebSockets. API REST con NestJS y TypeORM, Docker y despliegue en AWS EC2."
+    },
+    "portfolio": {
+      "title": "Portafolio Personal",
+      "description": "Construí mi portafolio personal utilizando React, Tailwind CSS implementando i18next, react-i18next y i18next-browser-languagedetector."
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "paragraph1": "Soy un desarrollador apasionado por la tecnología y la innovación. Desde temprana edad me ha fascinado el mundo del desarrollo de software.",
+    "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento con la comunidad.",
+    "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario."
+  },
+  "footer": {
+    "copyright": "© {{year}} Eduardo Meneses. Todos los derechos reservados.",
+    "madeWith": "Hecho con React + Vite + Tailwind CSS"
+  }
+}
