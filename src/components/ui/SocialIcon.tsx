@@ -17,11 +17,11 @@ export function SocialIcon({ social }: { social: SocialLink }) {
       href={social.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="smooth-transition text-zinc-400 hover:text-teal-400 hover:scale-125 p-3 rounded-lg hover:bg-zinc-800/50"
+      className="transition-all duration-300 text-zinc-400 hover:text-teal-400 hover:scale-110 p-2 md:p-3 rounded-lg hover:bg-zinc-800/50"
       aria-label={social.name}
       title={social.name}
     >
-      <Icon size={28} strokeWidth={1.5} />
+      <Icon size={22} strokeWidth={1.5} />
     </a>
   );
 }

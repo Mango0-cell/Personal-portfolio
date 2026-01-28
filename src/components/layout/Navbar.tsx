@@ -8,15 +8,15 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 smooth-transition ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled ? 'bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="w-full flex justify-center px-6">
-        <div className="w-full max-w-7xl flex items-center justify-between py-6">
+      <div className="w-full flex justify-center px-4 md:px-6">
+        <div className="w-full max-w-7xl flex items-center justify-between py-4 md:py-6">
           <a
             href="#home"
-            className="text-2xl font-bold text-zinc-100 hover:text-teal-400 smooth-transition"
+            className="text-xl md:text-2xl font-bold text-zinc-100 hover:text-teal-400 transition-all duration-300"
           >
             {portfolioData.name.split(' ')[0]}
           </a>
@@ -26,11 +26,11 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-zinc-300 hover:text-teal-400 smooth-transition relative group"
+                className="text-base md:text-lg font-medium text-zinc-300 hover:text-teal-400 transition-all duration-300 relative group"
                 onClick={closeMenu}
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-400 group-hover:w-full smooth-transition"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-teal-400 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
           </div>
@@ -44,7 +44,7 @@ export function Navbar() {
               <LanguageSwitcher />
             </div>
             <button
-              className="md:hidden text-zinc-300 hover:text-teal-400 smooth-transition"
+              className="md:hidden text-zinc-300 hover:text-teal-400 transition-all duration-300 p-2 hover:bg-zinc-800/50 rounded-lg"
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
@@ -55,13 +55,13 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden w-full flex justify-center px-6">
-          <div className="w-full max-w-7xl pb-4 space-y-4 animate-fadeIn">
+        <div className="md:hidden w-full flex justify-center px-4 md:px-6 bg-zinc-950/95 backdrop-blur-md">
+          <div className="w-full max-w-7xl pb-4 space-y-2 animate-fadeIn">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block text-lg font-medium text-zinc-300 hover:text-teal-400 smooth-transition py-2 border-b border-zinc-800"
+                className="block text-base font-medium text-zinc-300 hover:text-teal-400 transition-all duration-300 py-3 px-2 hover:bg-zinc-800/50 rounded-lg"
                 onClick={closeMenu}
               >
                 {link.name}
