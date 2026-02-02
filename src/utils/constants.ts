@@ -65,7 +65,7 @@ export const projects: ProjectItem[] = [
     {
         id: 'news',
         translationKey: 'projects.news',
-        link: '#',
+        link: 'https://portal-de-noticias-umber.vercel.app/',
         github: 'https://github.com/Mango0-cell/Portal-de-Noticias',
         techStack: ['React', 'TypeScript', 'RTK Query', 'Tailwind CSS'],
         image: portalNoticiasImg
@@ -73,7 +73,7 @@ export const projects: ProjectItem[] = [
     {
         id: 'ui_clone',
         translationKey: 'projects.ui_clone',
-        link: '#',
+        link: 'https://vary-raft-57916228.figma.site/',
         github: 'https://github.com/Mango0-cell/Clonacion-de-UI-Web',
         techStack: ['Figma', 'UX/UI', 'Web Design'],
         image: clonacionUIImg

@@ -45,7 +45,7 @@
     },
     "kanban": {
       "title": "My Full Stack App - Kanban",
-      "description": "Desarrollé una aplicación web Full Stack tipo Kanban con autenticación segura, gestión CRUD completa y edición de contenido en Markdown. Implementé funcionalidades interactivas avanzadas como drag and drop y chat en tiempo real con WebSockets. API REST con NestJS y TypeORM, Docker y despliegue en AWS EC2."
+      "description": "Desarrollé una aplicación web Full Stack tipo Kanban con autenticación segura, gestión CRUD completa y edición de contenido en Markdown. Implementé funcionalidades interactivas avanzadas como drag and drop y chat en tiempo real con WebSockets. API REST con NestJS y TypeORM, Docker y despliegue en AWS EC2. (En progreso...)"
     },
     "portfolio": {
       "title": "Portafolio Personal",

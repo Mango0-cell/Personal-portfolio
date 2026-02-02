@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+# 🚀 Personal Portfolio - Eduardo Meneses
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio personal desarrollado con React, TypeScript y Tailwind CSS, con soporte completo de internacionalización (i18n).
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1-06B6D4?logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Características
 
-## React Compiler
+- ⚡ **Vite** - Build tool ultrarrápido con HMR
+- ⚛️ **React 19** - Última versión de React
+- 📝 **TypeScript** - Tipado estático para mayor robustez
+- 🎨 **Tailwind CSS 4** - Estilos utility-first modernos
+- 🌐 **i18next** - Internacionalización completa (Español/Inglés)
+- 📱 **Responsive Design** - Adaptable a todos los dispositivos
+- 🎭 **Animaciones suaves** - Scroll reveal y transiciones CSS
+- 🔧 **ESLint** - Linting para código limpio
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## 📂 Estructura del Proyecto
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+│   ├── ui/           # Componentes atómicos (Card, SocialIcon)
+│   ├── common/       # Componentes compartidos (Footer, Section)
+│   ├── layout/       # Layout (Navbar, Footer)
+│   └── sections/     # Secciones principales (Hero, Projects, About)
+├── hooks/            # Custom hooks (useScrollReveal, useNavigation)
+├── types/            # Interfaces TypeScript
+├── utils/            # Constantes y utilidades
+└── assets/           # Imágenes y recursos
+public/
+└── locales/          # Archivos de traducción (en/es)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Instalación
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Clonar el repositorio
+git clone https://github.com/Mango0-cell/Personal-portfolio.git
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Entrar al directorio
+cd Personal-portfolio
+
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
 ```
+
+## 📜 Scripts Disponibles
+
+| Script | Descripción |
+|--------|-------------|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Genera la build de producción |
+| `npm run preview` | Previsualiza la build de producción |
+| `npm run lint` | Ejecuta ESLint |
+
+## 🌍 Internacionalización
+
+El proyecto soporta múltiples idiomas gracias a **i18next**:
+
+- 🇪🇸 Español
+- 🇺🇸 Inglés
+
+Los archivos de traducción se encuentran en `public/locales/`.
+
+### Añadir un nuevo idioma
+
+1. Crear carpeta en `public/locales/{código-idioma}/`
+2. Copiar y traducir `translation.json`
+3. El detector de idioma lo reconocerá automáticamente
+
+## 🎯 Secciones
+
+- **Hero** - Presentación principal con información de contacto
+- **Projects** - Portfolio de proyectos destacados
+- **About** - Información personal y profesional
+- **Footer** - Enlaces sociales y copyright
+
+## 🔧 Tecnologías Principales
+
+| Tecnología | Uso |
+|------------|-----|
+| React 19 | UI Library |
+| TypeScript | Tipado estático |
+| Tailwind CSS 4 | Estilos |
+| Vite 7 | Build tool |
+| i18next | Internacionalización |
+| Lucide React | Iconos |
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT.
+
+---
+
+Hecho con ❤️ por [Eduardo Meneses](https://github.com/Mango0-cell)
+
