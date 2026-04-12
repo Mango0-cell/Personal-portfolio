@@ -50,7 +50,7 @@ export const projects: ProjectItem[] = [
     {
         id: 'navidad',
         translationKey: 'projects.navidad',
-        link: 'https://mango0-cell.github.io/Armando-la-Navidad-HTML-y-CSS-puro/',
+        link: 'https://mango0-cell.github.io/armando-la-navidad-HTML-y-CSS-puro/',
         github: 'https://github.com/Mango0-cell/Armando-la-Navidad-HTML-y-CSS-puro',
         techStack: ['HTML5 Puro', 'CSS3'],
         image: '/assets/projects/ArmandoNavidad.png'

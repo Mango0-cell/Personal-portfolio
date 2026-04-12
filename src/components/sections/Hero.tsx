@@ -168,7 +168,7 @@ export function Hero() {
             {t('hero.contactMe')}
           </a>
           <a
-            href="/assets/Eduardo_Meneses CV.pdf"
+            href="/assets/Eduardo_Meneses.pdf"
             download="Eduardo_Meneses_CV.pdf"
             className="flex items-center justify-center gap-2 px-8 py-4 border border-blue-500/40 bg-blue-500/10 text-blue-400 rounded-xl hover:bg-blue-500/20 hover:border-blue-400/60 transition-all duration-300 font-medium"
           >
