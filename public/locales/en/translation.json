@@ -1,36 +1,44 @@
 {
   "nav": {
     "home": "Home",
-    "experience": "Experience",
-    "projects": "Projects",
     "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
     "contact": "Contact"
   },
   "hero": {
+    "greeting": "Hi, I'm",
     "role": "Full Stack Developer",
     "bio": "Motivated Software Developer committed to continuous learning and active participation in development projects for both Backend and Frontend. Capable of creating scalable, user-centered solutions.",
-    "available": "Available to work"
+    "available": "Available to work",
+    "viewWork": "View Work",
+    "contactMe": "Contact Me"
   },
   "sections": {
-    "experience": "Work Experience",
+    "about": "About Me",
+    "skills": "Tech Stack",
     "projects": "Featured Projects",
-    "about": "About Me"
+    "contact": "Get In Touch"
   },
-  "experience": {
-    "job1": {
-      "title": "Full Stack Developer",
-      "description": "Development "
+  "about": {
+    "paragraph1": "I am a developer passionate about technology and innovation. Since an early age I have been fascinated by the world of software development.",
+    "paragraph2": "I love learning new technologies and facing complex challenges. In my free time, I contribute to open source projects to learn from the knowledge of the community.",
+    "paragraph3": "My goal is to create applications that not only work well, but also provide an exceptional user experience.",
+    "stats": {
+      "projects": { "value": "4+", "label": "Projects" },
+      "learning": { "value": "∞", "label": "Always Learning" },
+      "location": { "value": "CO", "label": "Colombia" }
     },
-    "job2": {
-      "title": "Full Stack Developer",
-      "description": "Development."
-    },
-    "job3": {
-      "title": "Full Stack Developer",
-      "description": "Development."
+    "features": {
+      "innovation": "Innovation First",
+      "speed": "Built for Speed",
+      "global": "Globally Minded"
     }
   },
   "projects": {
+    "scrollHint": "Scroll to explore",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Code",
     "navidad": {
       "title": "Armando la Navidad",
       "description": "Developed an interactive game using exclusively CSS (without frameworks or JavaScript) to handle layouts, typography and colors. Created complex animations and smooth transitions, as well as real randomization logic and CSS transformations, ensuring responsive design."
@@ -46,21 +54,22 @@
     "kanban": {
       "title": "My Full Stack App - Kanban",
       "description": "Developed a Kanban-style Full Stack web application with secure authentication, complete CRUD management and Markdown content editing. Implemented advanced interactive features such as drag and drop and real-time chat with WebSockets. REST API with NestJS and TypeORM, Docker and deployment on AWS EC2. (In progress...)"
-
     },
     "portfolio": {
       "title": "Personal Portfolio",
       "description": "Built my personal portfolio using React, Tailwind CSS implementing i18next, react-i18next and i18next-browser-languagedetector."
     }
   },
-  "about": {
-    "title": "About Me",
-    "paragraph1": "I am a developer passionate about technology and innovation. Since an early age I have been fascinated by the world of software development.",
-    "paragraph2": "I love learning new technologies and facing complex challenges. In my free time, I contribute to open source projects to learn from the knowledge of the community.",
-    "paragraph3": "My goal is to create applications that not only work well, but also provide an exceptional user experience."
+  "contact": {
+    "subtitle": "Let's work together on your next project",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "connect": "Connect with me"
   },
   "footer": {
     "copyright": "© {{year}} Eduardo Meneses. All rights reserved.",
-    "madeWith": "Made with React + Vite + Tailwind CSS"
+    "madeWith": "Made with React + Next.js + Tailwind CSS"
   }
 }

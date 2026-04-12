@@ -1,14 +1,9 @@
-import armandoNavidadImg from '../assets/projects/ArmandoNavidad.png';
-import portalNoticiasImg from '../assets/projects/PortalNoticias.png';
-import clonacionUIImg from '../assets/projects/ClonacionUIWeb.png';
-import kanbanImg from '../assets/projects/AppKanban.png';
 import type { ExperienceItem, PortfolioData, ProjectItem, SocialLink } from '../types';
-  
 
 export const portfolioData: PortfolioData = {
     name: 'Eduardo Meneses',
     email: 'eduardo.meneses@utp.edu.co',
-    profileImage: '/assets/profile-picture.jpeg',
+    profileImage: '/assets/photo-circle.jpeg',
     socialLinks: [
         {
             name: 'GitHub',
@@ -33,7 +28,6 @@ export const portfolioData: PortfolioData = {
     ] as SocialLink[]
 };
 
-// Experiencia: solo datos estructurales + translationKey con claves de objeto
 export const experiences: ExperienceItem[] = [
     {
         id: 'job1',
@@ -52,7 +46,6 @@ export const experiences: ExperienceItem[] = [
     }
 ];
 
-// Proyectos: datos estructurales + translationKey con claves de objeto
 export const projects: ProjectItem[] = [
     {
         id: 'navidad',
@@ -60,7 +53,7 @@ export const projects: ProjectItem[] = [
         link: 'https://mango0-cell.github.io/Armando-la-Navidad-HTML-y-CSS-puro/',
         github: 'https://github.com/Mango0-cell/Armando-la-Navidad-HTML-y-CSS-puro',
         techStack: ['HTML5 Puro', 'CSS3'],
-        image: armandoNavidadImg
+        image: '/assets/projects/ArmandoNavidad.png'
     },
     {
         id: 'news',
@@ -68,7 +61,7 @@ export const projects: ProjectItem[] = [
         link: 'https://portal-de-noticias-umber.vercel.app/',
         github: 'https://github.com/Mango0-cell/Portal-de-Noticias',
         techStack: ['React', 'TypeScript', 'RTK Query', 'Tailwind CSS'],
-        image: portalNoticiasImg
+        image: '/assets/projects/PortalNoticias.png'
     },
     {
         id: 'ui_clone',
@@ -76,7 +69,7 @@ export const projects: ProjectItem[] = [
         link: 'https://vary-raft-57916228.figma.site/',
         github: 'https://github.com/Mango0-cell/Clonacion-de-UI-Web',
         techStack: ['Figma', 'UX/UI', 'Web Design'],
-        image: clonacionUIImg
+        image: '/assets/projects/ClonacionUIWeb.png'
     },
     {
         id: 'kanban',
@@ -84,7 +77,6 @@ export const projects: ProjectItem[] = [
         link: '#',
         github: 'https://github.com/Mango0-cell/My-Full-Stack-App-Kanban',
         techStack: ['React', 'NestJS', 'TypeScript', 'Docker', 'AWS', 'WebSockets'],
-        image: kanbanImg
+        image: '/assets/projects/AppKanban.png'
     },
-    
 ];

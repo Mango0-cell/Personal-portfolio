@@ -1,36 +1,44 @@
 {
   "nav": {
     "home": "Inicio",
-    "experience": "Experiencia",
-    "projects": "Proyectos",
     "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
     "contact": "Contacto"
   },
   "hero": {
+    "greeting": "Hola, soy",
     "role": "Desarrollador Full Stack",
     "bio": "Desarrollador de Software motivado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto en Backend como en Frontend. Capaz de crear soluciones escalables y centradas en el usuario.",
-    "available": "Disponible para trabajar"
+    "available": "Disponible para trabajar",
+    "viewWork": "Ver Trabajo",
+    "contactMe": "Contáctame"
   },
   "sections": {
-    "experience": "Experiencia Laboral",
+    "about": "Sobre Mí",
+    "skills": "Stack Tecnológico",
     "projects": "Proyectos Destacados",
-    "about": "Sobre Mí"
+    "contact": "Contáctame"
   },
-  "experience": {
-    "job1": {
-      "title": "Full Stack Developer",
-      "description": "Desarrollo"
+  "about": {
+    "paragraph1": "Soy un desarrollador apasionado por la tecnología y la innovación. Desde temprana edad me ha fascinado el mundo del desarrollo de software.",
+    "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento de la comunidad.",
+    "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario.",
+    "stats": {
+      "projects": { "value": "4+", "label": "Proyectos" },
+      "learning": { "value": "∞", "label": "Siempre Aprendiendo" },
+      "location": { "value": "CO", "label": "Colombia" }
     },
-    "job2": {
-      "title": "Full Stack Developer",
-      "description": "Desarrollo"
-    },
-    "job3": {
-      "title": "Full Stack Developer",
-      "description": "Desarrollo"
+    "features": {
+      "innovation": "Innovación Primero",
+      "speed": "Velocidad Óptima",
+      "global": "Visión Global"
     }
   },
   "projects": {
+    "scrollHint": "Desplázate para explorar",
+    "liveDemo": "Ver Demo",
+    "viewCode": "Ver Código",
     "navidad": {
       "title": "Armando la Navidad",
       "description": "Desarrollé un juego interactivo utilizando exclusivamente CSS (sin frameworks ni JavaScript) para manejar layouts, tipografías y colores. Creé animaciones complejas y transiciones fluidas, así como una lógica de aleatoriedad real y transformaciones CSS, garantizando también un diseño responsivo."
@@ -40,7 +48,7 @@
       "description": "Construí una aplicación web moderna y responsiva que consume la News API para mostrar información en tiempo real, optimicé el rendimiento mediante RTK Query para el manejo eficiente del caché y el estado global de la aplicación y diseñé una interfaz de usuario avanzada con modo claro/oscuro sincronizado."
     },
     "ui_clone": {
-      "title": "Clonacion-de-UI-Web",
+      "title": "Clonacion de UI Web",
       "description": "Apliqué principios fundamentales de UX/UI para replicar fielmente una interfaz web existente, enfocándome en la precisión de espaciados, tipografía y jerarquía visual."
     },
     "kanban": {
@@ -52,14 +60,16 @@
       "description": "Construí mi portafolio personal utilizando React, Tailwind CSS implementando i18next, react-i18next y i18next-browser-languagedetector."
     }
   },
-  "about": {
-    "title": "Sobre mí",
-    "paragraph1": "Soy un desarrollador apasionado por la tecnología y la innovación. Desde temprana edad me ha fascinado el mundo del desarrollo de software.",
-    "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento de la comunidad.",
-    "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario."
+  "contact": {
+    "subtitle": "Trabajemos juntos en tu próximo proyecto",
+    "name": "Tu Nombre",
+    "email": "Tu Email",
+    "message": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "connect": "Conéctate conmigo"
   },
   "footer": {
     "copyright": "© {{year}} Eduardo Meneses. Todos los derechos reservados.",
-    "madeWith": "Hecho con React + Vite + Tailwind CSS"
+    "madeWith": "Hecho con React + Next.js + Tailwind CSS"
   }
 }
