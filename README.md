@@ -1,103 +1,89 @@
-# 🚀 Personal Portfolio - Eduardo Meneses
+# Personal Portfolio — Eduardo Meneses
 
-Portfolio personal desarrollado con React, TypeScript y Tailwind CSS, con soporte completo de internacionalización (i18n).
+Bilingual personal portfolio (ES/EN) built with Next.js, React 19, TypeScript, Tailwind CSS v4, and i18next.
 
-![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.1-06B6D4?logo=tailwindcss&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
 
-## ✨ Características
+## Sections
 
-- ⚡ **Vite** - Build tool ultrarrápido con HMR
-- ⚛️ **React 19** - Última versión de React
-- 📝 **TypeScript** - Tipado estático para mayor robustez
-- 🎨 **Tailwind CSS 4** - Estilos utility-first modernos
-- 🌐 **i18next** - Internacionalización completa (Español/Inglés)
-- 📱 **Responsive Design** - Adaptable a todos los dispositivos
-- 🎭 **Animaciones suaves** - Scroll reveal y transiciones CSS
-- 🔧 **ESLint** - Linting para código limpio
+- **Hero** — Animated name reveal, photo, "available to work" badge, CV download, encrypt button
+- **About** — Bento grid cards with bio, stats and feature highlights
+- **Skills** — Infinite-scroll rows of tech stack pills
+- **Projects** — GSAP-powered elastic card swap stack with click-to-front interaction
+- **Contact** — mailto form and social links
 
-## 📂 Estructura del Proyecto
+## Tech Stack
+
+| Technology | Role |
+|---|---|
+| Next.js 15 (App Router) | Framework |
+| React 19 | UI library |
+| TypeScript | Static typing |
+| Tailwind CSS v4 | Styling |
+| GSAP | Card animations (CardSwap, MagicBento) |
+| motion/react | Scroll reveal & transitions |
+| OGL (WebGL) | Particle background |
+| Lenis | Smooth scroll |
+| i18next | ES / EN internationalization |
+| Lucide React | Icons |
+
+## Project Structure
 
 ```
+app/
+├── layout.tsx          # Root layout & metadata
+├── page.tsx            # Client-only entry (SSR disabled)
+└── globals.css         # CSS variables, Tailwind, keyframes
 src/
 ├── components/
-│   ├── ui/           # Componentes atómicos (Card, SocialIcon)
-│   ├── common/       # Componentes compartidos (Footer, Section)
-│   ├── layout/       # Layout (Navbar, Footer)
-│   └── sections/     # Secciones principales (Hero, Projects, About)
-├── hooks/            # Custom hooks (useScrollReveal, useNavigation)
-├── types/            # Interfaces TypeScript
-├── utils/            # Constantes y utilidades
-└── assets/           # Imágenes y recursos
+│   ├── CardSwap.tsx    # GSAP elastic card stack animation
+│   ├── DecryptedText.tsx  # Character-scramble reveal
+│   ├── GradualBlur.tsx    # Edge-blur scroll overlay
+│   ├── MagicBento.tsx     # GSAP particle hover bento grid
+│   ├── Particles.tsx      # OGL WebGL particle background
+│   ├── ScrollStack.tsx    # Lenis sticky card stack
+│   ├── layout/
+│   │   └── Navbar.tsx     # Floating pill nav + language toggle
+│   └── sections/
+│       ├── Hero.tsx
+│       ├── About.tsx
+│       ├── Skills.tsx
+│       ├── Projects.tsx
+│       └── Contact.tsx
+├── utils/constants.ts  # Non-translatable data (URLs, projects, tech stack)
+└── i18n.ts             # i18next config (HttpBackend)
 public/
-└── locales/          # Archivos de traducción (en/es)
+├── assets/             # Static images and CV PDF
+└── locales/
+    ├── en/translation.json
+    └── es/translation.json
 ```
 
-## 🛠️ Instalación
+## Getting Started
 
 ```bash
-# Clonar el repositorio
 git clone https://github.com/Mango0-cell/Personal-portfolio.git
-
-# Entrar al directorio
 cd Personal-portfolio
-
-# Instalar dependencias
 npm install
-
-# Iniciar servidor de desarrollo
-npm run dev
+npm run dev        # http://localhost:3000
 ```
 
-## 📜 Scripts Disponibles
+## Available Scripts
 
-| Script | Descripción |
-|--------|-------------|
-| `npm run dev` | Inicia el servidor de desarrollo |
-| `npm run build` | Genera la build de producción |
-| `npm run preview` | Previsualiza la build de producción |
-| `npm run lint` | Ejecuta ESLint |
+| Script | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-## 🌍 Internacionalización
+## Internationalization
 
-El proyecto soporta múltiples idiomas gracias a **i18next**:
-
-- 🇪🇸 Español
-- 🇺🇸 Inglés
-
-Los archivos de traducción se encuentran en `public/locales/`.
-
-### Añadir un nuevo idioma
-
-1. Crear carpeta en `public/locales/{código-idioma}/`
-2. Copiar y traducir `translation.json`
-3. El detector de idioma lo reconocerá automáticamente
-
-## 🎯 Secciones
-
-- **Hero** - Presentación principal con información de contacto
-- **Projects** - Portfolio de proyectos destacados
-- **About** - Información personal y profesional
-- **Footer** - Enlaces sociales y copyright
-
-## 🔧 Tecnologías Principales
-
-| Tecnología | Uso |
-|------------|-----|
-| React 19 | UI Library |
-| TypeScript | Tipado estático |
-| Tailwind CSS 4 | Estilos |
-| Vite 7 | Build tool |
-| i18next | Internacionalización |
-| Lucide React | Iconos |
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT.
+All visible text lives in `public/locales/{en,es}/translation.json`. The language is detected automatically from the browser and can be toggled via the navbar button.
 
 ---
 
-Hecho con ❤️ por [Eduardo Meneses](https://github.com/Mango0-cell)
-
+Made with React + Next.js + Tailwind CSS by [Eduardo Meneses](https://github.com/Mango0-cell)
