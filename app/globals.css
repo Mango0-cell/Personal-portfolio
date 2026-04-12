@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* ===== Theme Variables ===== */
+:root {
+  --background: #0A0A0A;
+  --foreground: #FAFAFA;
+  --primary: #3B82F6;
+  --primary-foreground: #FAFAFA;
+  --muted-foreground: #A1A1AA;
+  --border: rgba(255, 255, 255, 0.1);
+  --ring: #3B82F6;
+  --neon-blue: #3B82F6;
+  --neon-purple: #8B5CF6;
+  --glass-bg: rgba(20, 20, 25, 0.4);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'SF Pro', sans-serif;
+    cursor: auto;
+  }
+
+  * {
+    cursor: auto;
+  }
+
+  a, button, [role="button"] {
+    cursor: pointer;
+  }
+}
+
+/* ===== Gradient animation for hero role text ===== */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
+}
+
+/* ===== Smooth transition utility ===== */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
