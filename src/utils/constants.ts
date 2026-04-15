@@ -12,7 +12,7 @@ export const portfolioData: PortfolioData = {
         },
         {
             name: 'LinkedIn',
-            url: '#',
+            url: 'https://www.linkedin.com/in/eduardo-meneses-4127753b6/',
             icon: 'Linkedin'
         },
         {

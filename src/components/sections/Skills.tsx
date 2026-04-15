@@ -21,6 +21,15 @@ const technologies = [
   { name: 'HTML5', color: '#E34F26' },
   { name: 'CSS3', color: '#1572B6' },
   { name: 'Git', color: '#F05032' },
+  { name: 'React Router', color: '#b81e20' },
+  { name: 'JWT', color: '#5b0c58' },
+  { name: 'C', color: '#2c1174' },
+  { name: 'C++', color: '#00599C' },
+  { name: 'Supabase', color: '#3ECF8E' },
+  { name: 'Vite', color: '#646CFF' },
+  { name: 'Postman', color: '#FF6C37' },
+  { name: 'ESLint', color: '#4B32C3' },
+  { name: 'LaTeX', color: '#008080' },
   { name: 'RTK Query', color: '#764ABC' },
   { name: 'Figma', color: '#F24E1E' },
   { name: 'i18next', color: '#26A69A' },
@@ -86,6 +95,7 @@ export function Skills() {
           exponential
           opacity={1}
           zIndex={20}
+          className="max-[768px]:hidden"
         />
         <GradualBlur
           target="parent"
@@ -97,6 +107,7 @@ export function Skills() {
           exponential
           opacity={1}
           zIndex={20}
+          className="max-[768px]:hidden"
         />
         <motion.div
           animate={{ x: [0, -1920] }}
@@ -126,6 +137,7 @@ export function Skills() {
           exponential
           opacity={1}
           zIndex={20}
+          className="max-[768px]:hidden"
         />
         <GradualBlur
           target="parent"
@@ -137,6 +149,7 @@ export function Skills() {
           exponential
           opacity={1}
           zIndex={20}
+          className="max-[768px]:hidden"
         />
         <motion.div
           animate={{ x: [-1920, 0] }}
