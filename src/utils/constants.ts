@@ -74,7 +74,7 @@ export const projects: ProjectItem[] = [
     {
         id: 'kanban',
         translationKey: 'projects.kanban',
-        link: '#',
+        link: 'https://kanban-app-full-stack.vercel.app',
         github: 'https://github.com/Mango0-cell/My-Full-Stack-App-Kanban',
         techStack: ['React', 'NestJS', 'TypeScript', 'Docker', 'AWS', 'WebSockets'],
         image: '/assets/projects/AppKanban.png'

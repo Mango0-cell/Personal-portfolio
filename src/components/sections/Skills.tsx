@@ -16,6 +16,8 @@ const technologies = [
   { name: 'PostgreSQL', color: '#4169E1' },
   { name: 'Docker', color: '#2496ED' },
   { name: 'AWS', color: '#FF9900' },
+  { name: 'Render', color: '#0f4133' },
+  { name: 'Railway', color: '#ccab40' },
   { name: 'GitHub', color: '#F0F6FC' },
   { name: 'WebSockets', color: '#6366F1' },
   { name: 'HTML5', color: '#E34F26' },

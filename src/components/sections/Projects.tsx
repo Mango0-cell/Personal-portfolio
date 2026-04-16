@@ -11,8 +11,8 @@ import { projects } from '../../utils';
 const projectMeta: Record<string, { accent: string }> = {
   navidad: { accent: '#F97316' },
   news:    { accent: '#0EA5E9' },
-  ui_clone:{ accent: '#A855F7' },
-  kanban:  { accent: '#10B981' },
+  ui_clone:{ accent: '#2822e2' },
+  kanban:  { accent: '#6c0faa' },
 };
 
 export function Projects() {
