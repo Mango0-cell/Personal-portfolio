@@ -52,7 +52,7 @@
       "description": "Applied fundamental UX/UI principles to faithfully replicate an existing web interface, focusing on the precision of spacing, typography and visual hierarchy."
     },
     "kanban": {
-      "title": "My Full Stack App - Kanban",
+      "title": "Kanban Flow",
       "description": "Developed a Kanban-style Full Stack web application with secure authentication, complete CRUD management and Markdown content editing. Implemented advanced interactive features such as drag and drop and real-time chat with WebSockets. REST API with NestJS and TypeORM, Docker and deployment on AWS EC2. (In progress...)"
     },
     "portfolio": {
