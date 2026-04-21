@@ -110,7 +110,7 @@ export function Projects() {
                     }}
                   >
                     {/* Project screenshot */}
-                    <div className="relative h-56 overflow-hidden" style={{ background: '#0E0E12' }}>
+                    <div className="relative h-60 overflow-hidden" style={{ background: '#0E0E12' }}>
                       {project.image && (
                         <img
                           src={project.image as string}
@@ -120,22 +120,22 @@ export function Projects() {
                         />
                       )}
                       {/* Gradient overlay at bottom for readability */}
-                      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#0E0E12] to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#0E0E12] to-transparent" />
                     </div>
 
                     {/* Card content */}
-                    <div className="p-5">
-                      <div className="flex items-start justify-between gap-3 mb-2">
+                    <div className="px-5 pt-3 pb-2">
+                      <div className="flex items-start justify-between gap-3 mb-1.5">
                         <h3 className="text-white font-bold text-sm leading-tight">{title}</h3>
                         <div
-                          className="w-2 h-2 rounded-full flex-shrink-0 mt-1"
+                          className="w-2 h-2 rounded-full flex-shrink-0 mt-0.5"
                           style={{ backgroundColor: meta.accent, boxShadow: `0 0 8px ${meta.accent}` }}
                         />
                       </div>
-                      <p className="text-white/40 text-xs leading-relaxed mb-3 line-clamp-2">{description}</p>
+                      <p className="text-white/40 text-xs leading-relaxed mb-2.5">{description}</p>
 
                       {/* Tech tags */}
-                      <div className="flex flex-wrap gap-1.5 mb-3">
+                      <div className="flex flex-wrap gap-1.5 mb-2.5">
                         {(project.techStack ?? []).slice(0, 4).map(tag => (
                           <span
                             key={tag}
