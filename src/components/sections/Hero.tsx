@@ -21,17 +21,17 @@ export function Hero() {
       className="min-h-screen flex items-center relative pt-24 pb-16"
     >
       {/* Ambient glow blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute -inset-x-32 -inset-y-24 pointer-events-none">
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-          className="absolute top-1/4 -right-1/4 w-96 h-96 rounded-full"
+          className="absolute top-1/4 -right-20 w-96 h-96 rounded-full"
           style={{ background: 'var(--neon-blue)', filter: 'blur(140px)', opacity: 0.12 }}
         />
         <motion.div
           animate={{ scale: [1.2, 1, 1.2], rotate: [90, 0, 90] }}
           transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
-          className="absolute -bottom-1/4 -left-1/4 w-96 h-96 rounded-full"
+          className="absolute -bottom-24 -left-20 w-96 h-96 rounded-full"
           style={{ background: 'var(--neon-purple)', filter: 'blur(140px)', opacity: 0.12 }}
         />
       </div>

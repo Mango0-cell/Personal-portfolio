@@ -67,8 +67,18 @@ export function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="skills" ref={ref} className="py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 mb-16">
+    <section id="skills" ref={ref} className="relative py-32 overflow-visible">
+      <div className="absolute -inset-x-32 -inset-y-24 pointer-events-none">
+        <div
+          className="absolute right-[14%] top-6 h-72 w-72 rounded-full blur-[130px] opacity-10"
+          style={{ background: 'var(--neon-purple)' }}
+        />
+        <div
+          className="absolute left-[6%] bottom-6 h-72 w-72 rounded-full blur-[130px] opacity-10"
+          style={{ background: 'var(--neon-blue)' }}
+        />
+      </div>
+      <div className="relative max-w-6xl mx-auto px-4 mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from "react";
+import { Menu, X, Globe } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 export function Navbar() {
   const { t, i18n } = useTranslation();
@@ -12,55 +12,56 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
-    { id: 'home', label: t('nav.home') },
-    { id: 'about', label: t('nav.about') },
-    { id: 'skills', label: t('nav.skills') },
-    { id: 'projects', label: t('nav.projects') },
-    { id: 'contact', label: t('nav.contact') },
+    { id: "home", label: t("nav.home") },
+    { id: "about", label: t("nav.about") },
+    { id: "work-experience", label: t("nav.experience") },
+    { id: "skills", label: t("nav.skills") },
+    { id: "projects", label: t("nav.projects") },
+    { id: "contact", label: t("nav.contact") },
   ];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false);
     }
   };
 
   const toggleLanguage = () => {
-    const next = i18n.language.startsWith('es') ? 'en' : 'es';
+    const next = i18n.language.startsWith("es") ? "en" : "es";
     i18n.changeLanguage(next);
   };
 
-  const langLabel = i18n.language.startsWith('es') ? 'ES' : 'EN';
+  const langLabel = i18n.language.startsWith("es") ? "ES" : "EN";
 
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-        isScrolled ? 'w-[95%] max-w-5xl' : 'w-[95%] max-w-6xl'
+        isScrolled ? "w-[95%] max-w-5xl" : "w-[95%] max-w-6xl"
       }`}
     >
       <div
         className={`backdrop-blur-xl border rounded-2xl px-6 py-4 transition-all duration-300 ${
-          isScrolled ? 'shadow-2xl shadow-blue-500/10' : ''
+          isScrolled ? "shadow-2xl shadow-blue-500/10" : ""
         }`}
         style={{
-          background: 'rgba(20, 20, 25, 0.7)',
-          borderColor: 'rgba(255, 255, 255, 0.1)',
+          background: "rgba(20, 20, 25, 0.7)",
+          borderColor: "rgba(255, 255, 255, 0.1)",
         }}
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection('home')}
+            onClick={() => scrollToSection("home")}
             className="text-lg font-bold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent"
           >
             Eduardo Meneses
@@ -68,7 +69,7 @@ export function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map(link => (
+            {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
@@ -105,13 +106,13 @@ export function Navbar() {
           {isOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
+              animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.25 }}
               className="md:hidden overflow-hidden"
             >
               <div className="pt-4 mt-4 border-t border-white/10 space-y-1">
-                {navLinks.map(link => (
+                {navLinks.map((link) => (
                   <button
                     key={link.id}
                     onClick={() => scrollToSection(link.id)}

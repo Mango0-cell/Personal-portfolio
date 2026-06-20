@@ -16,8 +16,18 @@ export function About() {
   const cardBg = { background: 'rgba(20, 20, 25, 0.5)' };
 
   return (
-    <section id="about" ref={ref} className="py-32 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" ref={ref} className="relative py-32 px-4 overflow-visible">
+      <div className="absolute -inset-x-32 -inset-y-24 pointer-events-none">
+        <div
+          className="absolute right-[6%] top-10 h-72 w-72 rounded-full blur-[130px] opacity-10"
+          style={{ background: 'var(--neon-blue)' }}
+        />
+        <div
+          className="absolute left-[10%] bottom-0 h-64 w-64 rounded-full blur-[130px] opacity-10"
+          style={{ background: 'var(--neon-purple)' }}
+        />
+      </div>
+      <div className="relative max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

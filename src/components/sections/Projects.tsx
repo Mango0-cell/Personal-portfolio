@@ -21,8 +21,18 @@ export function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="projects" ref={ref} className="pt-32 pb-56 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section id="projects" ref={ref} className="relative pt-32 pb-56 px-4 overflow-visible">
+      <div className="absolute -inset-x-32 -inset-y-24 pointer-events-none">
+        <div
+          className="absolute right-[4%] top-24 h-80 w-80 rounded-full blur-[140px] opacity-[0.14]"
+          style={{ background: 'var(--neon-blue)' }}
+        />
+        <div
+          className="absolute left-[12%] bottom-20 h-72 w-72 rounded-full blur-[130px] opacity-10"
+          style={{ background: 'var(--neon-purple)' }}
+        />
+      </div>
+      <div className="relative max-w-6xl mx-auto">
 
         {/* Header */}
         <motion.h2
