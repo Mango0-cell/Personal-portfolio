@@ -14,7 +14,7 @@ const experiences = [
     glowColor: "199 89 74",
     icon: BriefcaseBusiness,
     colors: ["#38bdf8", "#6366f1", "#c084fc"],
-    objectPosition: "72% top",
+    objectPosition: "30% top",
   },
   {
     id: "brunchosos",

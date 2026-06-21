@@ -2,7 +2,7 @@
   "nav": {
     "home": "Inicio",
     "about": "Sobre mí",
-    "experience": "Experience",
+    "experience": "Experiencia",
     "skills": "Habilidades",
     "projects": "Proyectos",
     "contact": "Contacto"
@@ -44,7 +44,7 @@
     "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento de la comunidad.",
     "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario.",
     "stats": {
-      "projects": { "value": "4+", "label": "Proyectos" },
+      "projects": { "value": "4+", "label": "Proyectos Destacados" },
       "learning": { "value": "∞", "label": "Siempre Aprendiendo" },
       "location": { "value": "CO", "label": "Colombia" }
     },
@@ -67,7 +67,7 @@
       "description": "Construí una aplicación web moderna y responsiva que consume la News API para mostrar información en tiempo real, optimicé el rendimiento mediante RTK Query para el manejo eficiente del caché y el estado global de la aplicación y diseñé una interfaz de usuario avanzada con modo claro/oscuro sincronizado."
     },
     "ui_clone": {
-      "title": "Clonacion de UI Web",
+      "title": "Clonación de UI Web",
       "description": "Apliqué principios fundamentales de UX/UI para replicar fielmente una interfaz web existente, enfocándome en la precisión de espaciados, tipografía y jerarquía visual."
     },
     "kanban": {
