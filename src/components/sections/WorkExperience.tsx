@@ -13,7 +13,7 @@ const experiences = [
     accent: "#38BDF8",
     glowColor: "199 89 74",
     icon: BriefcaseBusiness,
-    colors: ["#38bdf8", "#6366f1", "#c084fc"],
+    colors: ["#155ea8", "#6366f1", "#c084fc"],
     objectPosition: "30% top",
   },
   {
