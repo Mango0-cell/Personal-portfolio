@@ -13,7 +13,13 @@
     "bio": "Motivated Software Developer committed to continuous learning and active participation in development projects for both Backend and Frontend. Capable of creating scalable, user-centered solutions.",
     "available": "Available to work",
     "viewWork": "View Work",
-    "contactMe": "Contact Me"
+    "contactMe": "Contact Me",
+    "cvModal": {
+      "title": "Download CV",
+      "subtitle": "Choose your preferred language",
+      "english": "English",
+      "spanish": "Spanish"
+    }
   },
   "sections": {
     "about": "About Me",

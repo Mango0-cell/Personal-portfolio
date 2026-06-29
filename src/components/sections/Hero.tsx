@@ -1,14 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'motion/react';
-import { Sparkles, Download } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Sparkles, Download, X, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import DecryptedText from '../DecryptedText';
 
 export function Hero() {
   const { t } = useTranslation();
   const [animKey, setAnimKey] = useState(0);
+  const [cvModalOpen, setCvModalOpen] = useState(false);
 
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
@@ -167,17 +168,95 @@ export function Hero() {
           >
             {t('hero.contactMe')}
           </a>
-          <a
-            href="/assets/Eduardo_Meneses.pdf"
-            download="Eduardo_Meneses_CV.pdf"
+          <button
+            onClick={() => setCvModalOpen(true)}
             className="flex items-center justify-center gap-2 px-8 py-4 border border-blue-500/40 bg-blue-500/10 text-blue-400 rounded-xl hover:bg-blue-500/20 hover:border-blue-400/60 transition-all duration-300 font-medium"
           >
             <Download className="w-4 h-4" />
             CV
-          </a>
+          </button>
         </motion.div>
         </div>
       </div>
+
+      {/* CV language modal */}
+      <AnimatePresence>
+        {cvModalOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+              onClick={() => setCvModalOpen(false)}
+            />
+
+            {/* Modal */}
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0, scale: 0.92, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 16 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
+            >
+              <div
+                className="pointer-events-auto w-full max-w-sm rounded-2xl border p-8 relative"
+                style={{ background: 'rgba(14,14,18,0.97)', borderColor: 'rgba(255,255,255,0.1)' }}
+              >
+                {/* Close */}
+                <button
+                  onClick={() => setCvModalOpen(false)}
+                  className="absolute top-4 right-4 p-1.5 rounded-lg text-white/30 hover:text-white/70 hover:bg-white/5 transition-all"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+
+                {/* Header */}
+                <div className="flex flex-col items-center text-center mb-8">
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                    <FileText className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white">{t('hero.cvModal.title')}</h3>
+                  <p className="text-sm text-white/40 mt-1">{t('hero.cvModal.subtitle')}</p>
+                </div>
+
+                {/* Options */}
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="/assets/Eduardo_Meneses_en.pdf"
+                    download="Eduardo_Meneses_CV_EN.pdf"
+                    onClick={() => setCvModalOpen(false)}
+                    className="flex items-center gap-4 px-5 py-4 rounded-xl border border-white/8 hover:border-blue-500/40 hover:bg-blue-500/5 transition-all duration-200 group"
+                  >
+                    <span className="text-2xl">🇺🇸</span>
+                    <div className="flex-1 text-left">
+                      <div className="text-sm font-medium text-white group-hover:text-blue-300 transition-colors">{t('hero.cvModal.english')}</div>
+                    </div>
+                    <Download className="w-4 h-4 text-white/20 group-hover:text-blue-400 transition-colors" />
+                  </a>
+
+                  <a
+                    href="/assets/Eduardo_Meneses.pdf"
+                    download="Eduardo_Meneses_CV_ES.pdf"
+                    onClick={() => setCvModalOpen(false)}
+                    className="flex items-center gap-4 px-5 py-4 rounded-xl border border-white/8 hover:border-violet-500/40 hover:bg-violet-500/5 transition-all duration-200 group"
+                  >
+                    <span className="text-2xl">🇪🇸</span>
+                    <div className="flex-1 text-left">
+                      <div className="text-sm font-medium text-white group-hover:text-violet-300 transition-colors">{t('hero.cvModal.spanish')}</div>
+                    </div>
+                    <Download className="w-4 h-4 text-white/20 group-hover:text-violet-400 transition-colors" />
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
