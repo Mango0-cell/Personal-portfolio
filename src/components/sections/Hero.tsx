@@ -183,7 +183,11 @@ export function Hero() {
               {t("hero.viewWork")}
             </button>
             <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="px-8 py-4 border border-white/20 rounded-xl hover:bg-white/5 transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 hover:border-blue-400/50 font-medium text-white/80 hover:text-white"
             >
               {t("hero.contactMe")}
