@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { BriefcaseBusiness, Coffee } from "lucide-react";
+import { BriefcaseBusiness, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import BorderGlow from "../BorderGlow";
 
@@ -21,7 +21,7 @@ const experiences = [
     image: "/assets/experience/Brunchosos-coffee-and-bread.png",
     accent: "#F59E0B",
     glowColor: "32 95 64",
-    icon: Coffee,
+    icon: Globe,
     colors: ["#f59e0b", "#fb7185", "#38bdf8"],
     objectPosition: "center top",
   },
