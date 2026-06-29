@@ -45,11 +45,11 @@
     "paragraph3": "My goal is to create applications that not only work well, but also provide an exceptional user experience.",
     "stats": {
       "projects": { "value": "4+", "label": "Featured Projects" },
-      "learning": { "value": "∞", "label": "Always Learning" },
+      "learning": { "value": "1+", "label": "Year of Experience" },
       "location": { "value": "CO", "label": "Colombia" }
     },
     "features": {
-      "innovation": "Innovation First",
+      "innovation": "IA Tools",
       "speed": "Built for Speed",
       "global": "Globally Minded"
     }
@@ -85,6 +85,11 @@
     "email": "Your Email",
     "message": "Your Message",
     "send": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent!",
+    "successDesc": "Thanks for reaching out. I'll get back to you soon.",
+    "error": "Something went wrong. Please try again.",
+    "ratelimit": "You've reached the limit of 3 messages per hour. Try again in {{minutes}} min.",
     "connect": "Connect with me"
   },
   "footer": {

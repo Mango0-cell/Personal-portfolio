@@ -45,11 +45,11 @@
     "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario.",
     "stats": {
       "projects": { "value": "4+", "label": "Proyectos Destacados" },
-      "learning": { "value": "∞", "label": "Siempre Aprendiendo" },
+      "learning": { "value": "1+", "label": "Año de Experiencia" },
       "location": { "value": "CO", "label": "Colombia" }
     },
     "features": {
-      "innovation": "Innovación Primero",
+      "innovation": "IA Tools",
       "speed": "Velocidad Óptima",
       "global": "Visión Global"
     }
@@ -85,6 +85,11 @@
     "email": "Tu Email",
     "message": "Tu Mensaje",
     "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado!",
+    "successDesc": "Gracias por escribir. Te responderé pronto.",
+    "error": "Algo salió mal. Por favor intenta de nuevo.",
+    "ratelimit": "Alcanzaste el límite de 3 mensajes por hora. Intenta de nuevo en {{minutes}} min.",
     "connect": "Conéctate conmigo"
   },
   "footer": {

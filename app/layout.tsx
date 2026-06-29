@@ -1,13 +1,18 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: 'Eduardo Meneses — Full Stack Developer',
+  title: "Eduardo Meneses — Full Stack Developer",
   description:
-    'Personal portfolio of Eduardo Meneses, bilingual Full Stack Developer specializing in React, TypeScript, NestJS, and cloud technologies.',
+    "Personal portfolio of Eduardo Meneses, bilingual Full Stack Developer specializing in React, TypeScript, NestJS, and cloud technologies.",
+  icons: { icon: "/assets/bot.svg" },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="es">
       <body>{children}</body>

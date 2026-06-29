@@ -1,61 +1,76 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
-import { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import GradualBlur from '../GradualBlur';
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import GradualBlur from "../GradualBlur";
 
 const technologies = [
-  { name: 'React', color: '#61DAFB' },
-  { name: 'Astro', color: '#b540e7' },
-  { name: 'TypeScript', color: '#3178C6' },
-  { name: 'Python', color: '#3776AB' },
-  { name: 'Node.js', color: '#339933' },
-  { name: 'NestJS', color: '#E0234E' },
-  { name: 'Tailwind CSS', color: '#06B6D4' },
-  { name: 'PostgreSQL', color: '#4169E1' },
-  { name: 'Docker', color: '#2496ED' },
-  { name: 'AWS', color: '#FF9900' },
-  { name: 'Render', color: '#0f4133' },
-  { name: 'Railway', color: '#ccab40' },
-  { name: 'GitHub', color: '#F0F6FC' },
-  { name: 'WebSockets', color: '#6366F1' },
-  { name: 'HTML5', color: '#E34F26' },
-  { name: 'CSS3', color: '#1572B6' },
-  { name: 'Git', color: '#F05032' },
-  { name: 'React Router', color: '#b81e20' },
-  { name: 'JWT', color: '#5b0c58' },
-  { name: 'C', color: '#2c1174' },
-  { name: 'C++', color: '#00599C' },
-  { name: 'Supabase', color: '#3ECF8E' },
-  { name: 'Vite', color: '#646CFF' },
-  { name: 'Postman', color: '#FF6C37' },
-  { name: 'ESLint', color: '#4B32C3' },
-  { name: 'RTK Query', color: '#764ABC' },
-  { name: 'Figma', color: '#F24E1E' },
-  { name: 'i18next', color: '#26A69A' },
+  { name: "React", color: "#61DAFB" },
+  { name: "Astro", color: "#b540e7" },
+  { name: "TypeScript", color: "#3178C6" },
+  { name: "Python", color: "#3776AB" },
+  { name: "Node.js", color: "#339933" },
+  { name: "NestJS", color: "#E0234E" },
+  { name: "Tailwind CSS", color: "#06B6D4" },
+  { name: "PostgreSQL", color: "#4169E1" },
+  { name: "Docker", color: "#2496ED" },
+  { name: "AWS", color: "#FF9900" },
+  { name: "Render", color: "#0f4133" },
+  { name: "Railway", color: "#ccab40" },
+  { name: "GitHub", color: "#F0F6FC" },
+  { name: "WebSockets", color: "#6366F1" },
+  { name: "HTML5", color: "#E34F26" },
+  { name: "CSS3", color: "#1572B6" },
+  { name: "Git", color: "#F05032" },
+  { name: "React Router", color: "#b81e20" },
+  { name: "JWT", color: "#5b0c58" },
+  { name: "C", color: "#2c1174" },
+  { name: "C++", color: "#00599C" },
+  { name: "Supabase", color: "#3ECF8E" },
+  { name: "Vite", color: "#646CFF" },
+  { name: "Postman", color: "#FF6C37" },
+  { name: "ESLint", color: "#4B32C3" },
+  { name: "RTK Query", color: "#764ABC" },
+  { name: "Figma", color: "#F24E1E" },
+  { name: "i18next", color: "#26A69A" },
 ];
 
 const duplicated = [...technologies, ...technologies, ...technologies];
-const duplicatedReverse = [...technologies, ...technologies, ...technologies].reverse();
+const duplicatedReverse = [
+  ...technologies,
+  ...technologies,
+  ...technologies,
+].reverse();
 
 function TechPill({ tech }: { tech: { name: string; color: string } }) {
   return (
     <div
       className="group backdrop-blur-xl border rounded-2xl px-7 py-4 flex-shrink-0 hover:border-blue-500/40 transition-all duration-300 relative overflow-hidden"
-      style={{ background: 'rgba(20, 20, 25, 0.5)', borderColor: 'rgba(255,255,255,0.08)', minWidth: '160px' }}
+      style={{
+        background: "rgba(20, 20, 25, 0.5)",
+        borderColor: "rgba(255,255,255,0.08)",
+        minWidth: "160px",
+      }}
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
-        style={{ background: `radial-gradient(circle at center, ${tech.color}, transparent)` }}
+        style={{
+          background: `radial-gradient(circle at center, ${tech.color}, transparent)`,
+        }}
       />
       <div className="relative z-10 flex items-center justify-center gap-3">
         <div
           className="w-2.5 h-2.5 rounded-full flex-shrink-0"
-          style={{ backgroundColor: tech.color, boxShadow: `0 0 10px ${tech.color}` }}
+          style={{
+            backgroundColor: tech.color,
+            boxShadow: `0 0 10px ${tech.color}`,
+          }}
         />
-        <span className="font-medium text-sm whitespace-nowrap text-white/70">{tech.name}</span>
+        <span className="font-medium text-sm whitespace-nowrap text-white/70">
+          {tech.name}
+        </span>
       </div>
     </div>
   );
@@ -64,7 +79,16 @@ function TechPill({ tech }: { tech: { name: string; color: string } }) {
 export function Skills() {
   const { t } = useTranslation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const row1Ref = useRef<HTMLDivElement>(null);
+  const row2Ref = useRef<HTMLDivElement>(null);
+  const [row1Width, setRow1Width] = useState(4928);
+  const [row2Width, setRow2Width] = useState(4928);
+
+  useEffect(() => {
+    if (row1Ref.current) setRow1Width(row1Ref.current.scrollWidth / 3);
+    if (row2Ref.current) setRow2Width(row2Ref.current.scrollWidth / 3);
+  }, []);
 
   return (
     <section id="skills" ref={ref} className="py-32 overflow-hidden">
@@ -74,9 +98,9 @@ export function Skills() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center text-white"
-          style={{ fontSize: '3rem', fontWeight: 700 }}
+          style={{ fontSize: "3rem", fontWeight: 700 }}
         >
-          {t('sections.skills')}
+          {t("sections.skills")}
         </motion.h2>
       </div>
 
@@ -112,8 +136,16 @@ export function Skills() {
           className="max-[768px]:hidden"
         />
         <motion.div
-          animate={{ x: [0, -1920] }}
-          transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 30, ease: 'linear' } }}
+          ref={row1Ref}
+          animate={{ x: [0, -row1Width] }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 60,
+              ease: "linear",
+            },
+          }}
           className="flex gap-4 flex-shrink-0"
         >
           {duplicated.map((tech, index) => (
@@ -154,8 +186,16 @@ export function Skills() {
           className="max-[768px]:hidden"
         />
         <motion.div
-          animate={{ x: [-1920, 0] }}
-          transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 35, ease: 'linear' } }}
+          ref={row2Ref}
+          animate={{ x: [-row2Width, 0] }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: "loop",
+              duration: 70,
+              ease: "linear",
+            },
+          }}
           className="flex gap-4 flex-shrink-0"
         >
           {duplicatedReverse.map((tech, index) => (
