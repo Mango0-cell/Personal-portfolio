@@ -80,13 +80,13 @@ export function Hero() {
             </div>
 
             {/* Available to work badge */}
-            <a
-              href="mailto:eduardo.meneses@utp.edu.co"
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/50 bg-green-500/10 text-green-400 text-xs font-medium hover:bg-green-500/20 transition-all duration-300"
             >
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
               {t("hero.available")}
-            </a>
+            </button>
           </motion.div>
 
           {/* Encrypt button */}
