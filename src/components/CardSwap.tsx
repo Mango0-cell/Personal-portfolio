@@ -1,23 +1,19 @@
-'use client';
+"use client";
 
 import React, {
   Children,
   cloneElement,
   forwardRef,
   isValidElement,
-  useImperativeHandle,
   useMemo,
   useRef,
   useEffect,
+  type MutableRefObject,
   type ReactElement,
   type ReactNode,
   type RefObject,
-} from 'react';
-import gsap from 'gsap';
-
-export interface CardSwapHandle {
-  bringToFront: (idx: number) => void;
-}
+} from "react";
+import gsap from "gsap";
 
 export interface CardSwapProps {
   width?: number | string;
@@ -27,8 +23,11 @@ export interface CardSwapProps {
   delay?: number;
   pauseOnHover?: boolean;
   onCardClick?: (idx: number) => void;
+  onFrontChange?: (idx: number) => void;
+  /** Parent passes a ref; CardSwap writes bringToFront into it so the parent can call it directly */
+  bringToFrontRef?: MutableRefObject<((idx: number) => void) | null>;
   skewAmount?: number;
-  easing?: 'linear' | 'elastic';
+  easing?: "linear" | "elastic";
   children: ReactNode;
 }
 
@@ -36,14 +35,16 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   customClass?: string;
 }
 
-export const Card = forwardRef<HTMLDivElement, CardProps>(({ customClass, ...rest }, ref) => (
-  <div
-    ref={ref}
-    {...rest}
-    className={`absolute top-1/2 left-1/2 rounded-2xl [transform-style:preserve-3d] [will-change:transform] [backface-visibility:hidden] ${customClass ?? ''} ${rest.className ?? ''}`.trim()}
-  />
-));
-Card.displayName = 'Card';
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ customClass, ...rest }, ref) => (
+    <div
+      ref={ref}
+      {...rest}
+      className={`absolute top-1/2 left-1/2 rounded-2xl [transform-style:preserve-3d] [will-change:transform] [backface-visibility:hidden] ${customClass ?? ""} ${rest.className ?? ""}`.trim()}
+    />
+  ),
+);
+Card.displayName = "Card";
 
 type CardRef = RefObject<HTMLDivElement | null>;
 
@@ -54,7 +55,12 @@ interface Slot {
   zIndex: number;
 }
 
-const makeSlot = (i: number, distX: number, distY: number, total: number): Slot => ({
+const makeSlot = (
+  i: number,
+  distX: number,
+  distY: number,
+  total: number,
+): Slot => ({
   x: i * distX,
   y: -i * distY,
   z: -i * distX * 1.5,
@@ -69,12 +75,12 @@ const placeNow = (el: HTMLElement, slot: Slot, skew: number) =>
     xPercent: -50,
     yPercent: -50,
     skewY: skew,
-    transformOrigin: 'center center',
+    transformOrigin: "center center",
     zIndex: slot.zIndex,
     force3D: true,
   });
 
-const CardSwap = forwardRef<CardSwapHandle, CardSwapProps>(({
+const CardSwap: React.FC<CardSwapProps> = ({
   width = 500,
   height = 400,
   cardDistance = 60,
@@ -82,37 +88,72 @@ const CardSwap = forwardRef<CardSwapHandle, CardSwapProps>(({
   delay = 5000,
   pauseOnHover = false,
   onCardClick,
+  onFrontChange,
+  bringToFrontRef: externalBringToFrontRef,
   skewAmount = 6,
-  easing = 'elastic',
+  easing = "elastic",
   children,
-}, ref) => {
+}) => {
   const config = useMemo(
     () =>
-      easing === 'elastic'
-        ? { ease: 'elastic.out(0.6,0.9)', durDrop: 2, durMove: 2, durReturn: 2, promoteOverlap: 0.9, returnDelay: 0.05 }
-        : { ease: 'power1.inOut', durDrop: 0.8, durMove: 0.8, durReturn: 0.8, promoteOverlap: 0.45, returnDelay: 0.2 },
-    [easing]
+      easing === "elastic"
+        ? {
+            ease: "elastic.out(0.6,0.9)",
+            durDrop: 2,
+            durMove: 2,
+            durReturn: 2,
+            promoteOverlap: 0.9,
+            returnDelay: 0.05,
+          }
+        : {
+            ease: "power1.inOut",
+            durDrop: 0.8,
+            durMove: 0.8,
+            durReturn: 0.8,
+            promoteOverlap: 0.45,
+            returnDelay: 0.2,
+          },
+    [easing],
   );
 
-  const childArr = useMemo(() => Children.toArray(children) as ReactElement<CardProps>[], [children]);
+  const childArr = useMemo(
+    () => Children.toArray(children) as ReactElement<CardProps>[],
+    [children],
+  );
   const cardCount = childArr.length;
-  const refs = useMemo<CardRef[]>(() => Array.from({ length: cardCount }, () => React.createRef<HTMLDivElement>()), [cardCount]);
+  const refs = useMemo<CardRef[]>(
+    () =>
+      Array.from({ length: cardCount }, () =>
+        React.createRef<HTMLDivElement>(),
+      ),
+    [cardCount],
+  );
 
-  const order = useRef<number[]>(Array.from({ length: cardCount }, (_, i) => i));
+  const order = useRef<number[]>(
+    Array.from({ length: cardCount }, (_, i) => i),
+  );
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const intervalRef = useRef<number>(0);
   const holdTimeoutRef = useRef<number>(0);
   const container = useRef<HTMLDivElement>(null);
   const swapRef = useRef<(() => void) | null>(null);
-  const bringToFrontRef = useRef<((idx: number) => void) | null>(null);
+  const internalBringToFrontRef = useRef<((idx: number) => void) | null>(null);
+  const onFrontChangeCb = useRef(onFrontChange);
 
-  useImperativeHandle(ref, () => ({
-    bringToFront: (idx: number) => bringToFrontRef.current?.(idx),
-  }));
+  // Keep callback ref current without re-running the main effect
+  useEffect(() => {
+    onFrontChangeCb.current = onFrontChange;
+  }, [onFrontChange]);
 
   useEffect(() => {
     const total = refs.length;
-    refs.forEach((r, i) => placeNow(r.current!, makeSlot(i, cardDistance, verticalDistance, total), skewAmount));
+    refs.forEach((r, i) =>
+      placeNow(
+        r.current!,
+        makeSlot(i, cardDistance, verticalDistance, total),
+        skewAmount,
+      ),
+    );
 
     const swap = () => {
       if (order.current.length < 2) return;
@@ -121,42 +162,92 @@ const CardSwap = forwardRef<CardSwapHandle, CardSwapProps>(({
       const tl = gsap.timeline();
       tlRef.current = tl;
 
-      tl.to(elFront, { y: '+=500', duration: config.durDrop, ease: config.ease });
-      tl.addLabel('promote', `-=${config.durDrop * config.promoteOverlap}`);
+      tl.to(elFront, {
+        y: "+=500",
+        duration: config.durDrop,
+        ease: config.ease,
+      });
+      tl.addLabel("promote", `-=${config.durDrop * config.promoteOverlap}`);
+      // Fire highlight as the new card starts moving to front
+      tl.call(
+        () => {
+          onFrontChangeCb.current?.(rest[0]);
+        },
+        undefined,
+        "promote",
+      );
 
       rest.forEach((idx, i) => {
         const el = refs[idx].current!;
         const slot = makeSlot(i, cardDistance, verticalDistance, refs.length);
-        tl.set(el, { zIndex: slot.zIndex }, 'promote');
-        tl.to(el, { x: slot.x, y: slot.y, z: slot.z, duration: config.durMove, ease: config.ease }, `promote+=${i * 0.15}`);
+        tl.set(el, { zIndex: slot.zIndex }, "promote");
+        tl.to(
+          el,
+          {
+            x: slot.x,
+            y: slot.y,
+            z: slot.z,
+            duration: config.durMove,
+            ease: config.ease,
+          },
+          `promote+=${i * 0.15}`,
+        );
       });
 
-      const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);
-      tl.addLabel('return', `promote+=${config.durMove * config.returnDelay}`);
-      tl.call(() => { gsap.set(elFront, { zIndex: backSlot.zIndex }); }, undefined, 'return');
-      tl.to(elFront, { x: backSlot.x, y: backSlot.y, z: backSlot.z, duration: config.durReturn, ease: config.ease }, 'return');
-      tl.call(() => { order.current = [...rest, front]; });
+      const backSlot = makeSlot(
+        refs.length - 1,
+        cardDistance,
+        verticalDistance,
+        refs.length,
+      );
+      tl.addLabel("return", `promote+=${config.durMove * config.returnDelay}`);
+      tl.call(
+        () => {
+          gsap.set(elFront, { zIndex: backSlot.zIndex });
+        },
+        undefined,
+        "return",
+      );
+      tl.to(
+        elFront,
+        {
+          x: backSlot.x,
+          y: backSlot.y,
+          z: backSlot.z,
+          duration: config.durReturn,
+          ease: config.ease,
+        },
+        "return",
+      );
+      tl.call(() => {
+        order.current = [...rest, front];
+      });
     };
 
     swapRef.current = swap;
 
     const bringToFront = (targetCardIdx: number) => {
+      // Always fire the highlight callback first
+      onFrontChangeCb.current?.(targetCardIdx);
+
       const pos = order.current.indexOf(targetCardIdx);
-      if (pos === 0) return; // already at front
+      if (pos === 0) return; // already at front — highlight fired, no animation needed
 
       tlRef.current?.kill();
       clearInterval(intervalRef.current);
       clearTimeout(holdTimeoutRef.current);
 
-      const newOrder = [targetCardIdx, ...order.current.filter(i => i !== targetCardIdx)];
+      const newOrder = [
+        targetCardIdx,
+        ...order.current.filter((i) => i !== targetCardIdx),
+      ];
 
       const tl = gsap.timeline({
         onComplete: () => {
           order.current = newOrder;
-          // Hold the selected card at front for 8s before resuming auto-swap
           holdTimeoutRef.current = window.setTimeout(() => {
             intervalRef.current = window.setInterval(swapRef.current!, delay);
-          }, 8000);
+          }, 5000);
         },
       });
       tlRef.current = tl;
@@ -166,38 +257,61 @@ const CardSwap = forwardRef<CardSwapHandle, CardSwapProps>(({
         tl.set(refs[idx].current!, { zIndex: slot.zIndex }, 0);
         tl.to(
           refs[idx].current!,
-          { x: slot.x, y: slot.y, z: slot.z, duration: config.durMove, ease: config.ease },
-          0
+          {
+            x: slot.x,
+            y: slot.y,
+            z: slot.z,
+            duration: config.durMove,
+            ease: config.ease,
+          },
+          0,
         );
       });
     };
 
-    bringToFrontRef.current = bringToFront;
+    internalBringToFrontRef.current = bringToFront;
+    // Expose to parent if they passed a ref
+    if (externalBringToFrontRef) externalBringToFrontRef.current = bringToFront;
 
     swap();
     intervalRef.current = window.setInterval(swap, delay);
 
     if (pauseOnHover) {
       const node = container.current!;
-      const pause = () => { tlRef.current?.pause(); clearInterval(intervalRef.current); };
-      const resume = () => { tlRef.current?.play(); intervalRef.current = window.setInterval(swap, delay); };
-      node.addEventListener('mouseenter', pause);
-      node.addEventListener('mouseleave', resume);
+      const pause = () => {
+        tlRef.current?.pause();
+        clearInterval(intervalRef.current);
+      };
+      const resume = () => {
+        tlRef.current?.play();
+        intervalRef.current = window.setInterval(swap, delay);
+      };
+      node.addEventListener("mouseenter", pause);
+      node.addEventListener("mouseleave", resume);
       return () => {
-        node.removeEventListener('mouseenter', pause);
-        node.removeEventListener('mouseleave', resume);
+        node.removeEventListener("mouseenter", pause);
+        node.removeEventListener("mouseleave", resume);
         clearInterval(intervalRef.current);
         clearTimeout(holdTimeoutRef.current);
+        tlRef.current?.kill();
       };
     }
     return () => {
       clearInterval(intervalRef.current);
       clearTimeout(holdTimeoutRef.current);
+      tlRef.current?.kill();
     };
-  }, [cardDistance, verticalDistance, config, delay, pauseOnHover, refs, skewAmount]);
+  }, [
+    cardDistance,
+    verticalDistance,
+    config,
+    delay,
+    pauseOnHover,
+    refs,
+    skewAmount,
+    externalBringToFrontRef,
+  ]);
 
-  // CardSwap owns these element refs for GSAP positioning; they are passed through
-  // to cloned Card elements and read only from effects/click handlers.
   // eslint-disable-next-line react-hooks/refs
   const rendered = childArr.map((child, i) =>
     isValidElement<CardProps>(child)
@@ -208,22 +322,21 @@ const CardSwap = forwardRef<CardSwapHandle, CardSwapProps>(({
           onClick: (e: React.MouseEvent<HTMLDivElement>) => {
             child.props.onClick?.(e);
             onCardClick?.(i);
-            bringToFrontRef.current?.(i);
+            internalBringToFrontRef.current?.(i);
           },
         } as CardProps & React.RefAttributes<HTMLDivElement>)
-      : child
+      : child,
   );
 
   return (
     <div
       ref={container}
-      className="absolute bottom-0 right-0 transform -translate-x-[10%] translate-y-[8%] origin-bottom-right overflow-visible max-[768px]:left-1/2 max-[768px]:right-auto max-[768px]:top-1/2 max-[768px]:bottom-auto max-[768px]:-translate-x-1/2 max-[768px]:-translate-y-1/2 max-[768px]:origin-center max-[768px]:scale-[0.7] max-[480px]:scale-[0.5]"
-      style={{ width, height, perspective: '900px' }}
+      className="absolute bottom-0 right-0 transform -translate-x-[10%] translate-y-[8%] origin-bottom-right overflow-visible pointer-events-auto max-[768px]:left-1/2 max-[768px]:right-auto max-[768px]:top-1/2 max-[768px]:bottom-auto max-[768px]:-translate-x-1/2 max-[768px]:-translate-y-1/2 max-[768px]:origin-center max-[768px]:scale-[0.7] max-[480px]:scale-[0.5]"
+      style={{ width, height, perspective: "900px" }}
     >
       {rendered}
     </div>
   );
-});
-CardSwap.displayName = 'CardSwap';
+};
 
 export default CardSwap;
