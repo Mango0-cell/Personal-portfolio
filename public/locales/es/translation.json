@@ -10,7 +10,7 @@
   "hero": {
     "greeting": "Hola, soy",
     "role": "Desarrollador Full Stack",
-    "bio": "Desarrollador de Software motivado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto en Backend como en Frontend. Capaz de crear soluciones escalables y centradas en el usuario.",
+    "bio": "Desarrollador de software avanzado, comprometido con el aprendizaje continuo y la participación activa en proyectos de desarrollo tanto Backend como Frontend. Capaz de crear soluciones escalables y centradas en el usuario.",
     "available": "Disponible para trabajar",
     "viewWork": "Ver Trabajo",
     "contactMe": "Contáctame",
@@ -35,7 +35,7 @@
         "label": "Desarrollador full-stack",
         "title": "SwiftControl",
         "imageAlt": "Interfaz de proyecto de SwiftControl",
-        "description": "Tuve la agradable oportunidad de participar en proyectos de desarrollo full-stack en SwiftControl, aportando mis conocimientos principalmente en diseño y funcionalidades innovadoras aplicadas a la lógica de negocio. También trabajé en equipo con otros desarrolladores, poniendo a prueba mis habilidades de desarrollo rápido y continuo."
+        "description": "Actualmente participo en proyectos de desarrollo full-stack en SwiftControl, aportando mis conocimientos de diseño interactivo e interfaces, ademas de funcionalidades innovadoras aplicadas a la lógica de negocio. También colaboro en equipo con otros desarrolladores, poniendo a prueba mis habilidades de desarrollo rápido y continuo."
       },
       "brunchosos": {
         "label": "Desarrollador Web",
@@ -47,8 +47,8 @@
   },
   "about": {
     "paragraph1": "Soy un desarrollador apasionado por la tecnología y la innovación. Desde temprana edad me ha fascinado el mundo del desarrollo de software.",
-    "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. En mi tiempo libre, contribuyo a proyectos de código abierto para aprender del conocimiento de la comunidad.",
-    "paragraph3": "Mi objetivo es crear aplicaciones que no solo funcionen bien, sino que también proporcionen una experiencia excepcional al usuario.",
+    "paragraph2": "Me encanta aprender nuevas tecnologías y enfrentar desafíos complejos. Siempre estoy al tanto de las necesidades del mercado para mentenerme actualizado, ademas de contribuir en proyectos colaborativos para aprender del conocimiento de la comunidad.",
+    "paragraph3": "Participo activamente en proyectos academicos y profesionales brindando servicios de calidad y ofreciendo nuevas oportunidades de crecimiento a microempresas en toda Colombia.",
     "stats": {
       "projects": { "value": "4+", "label": "Proyectos Destacados" },
       "learning": { "value": "1+", "label": "Año de Experiencia" },
@@ -78,7 +78,7 @@
     },
     "kanban": {
       "title": "Flujo Kanban",
-      "description": "Desarrollé una aplicación web Full Stack tipo Kanban con autenticación segura, gestión CRUD completa y edición de contenido en Markdown. Implementé funcionalidades interactivas avanzadas como drag and drop y chat en tiempo real con WebSockets. API REST con NestJS y TypeORM, Docker y despliegue en AWS EC2. (En progreso...)"
+      "description": "Desarrollé una aplicación web Full Stack tipo Kanban con autenticación segura, gestión CRUD completa y edición de contenido en Markdown. Implementé funcionalidades interactivas avanzadas como drag and drop y chat en tiempo real con WebSockets. API REST con NestJS y TypeORM, Docker y despliegue en AWS EC2."
     },
     "portfolio": {
       "title": "Portafolio Personal",

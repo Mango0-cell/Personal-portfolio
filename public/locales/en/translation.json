@@ -10,7 +10,7 @@
   "hero": {
     "greeting": "Hi, I'm",
     "role": "Full Stack Developer",
-    "bio": "Motivated Software Developer committed to continuous learning and active participation in development projects for both Backend and Frontend. Capable of creating scalable, user-centered solutions.",
+    "bio": "Advanced Software Developer, committed to continuous learning and active involvement in both Backend and Frontend development projects. Able to create scalable, user-focused solutions.",
     "available": "Available to work",
     "viewWork": "View Work",
     "contactMe": "Contact Me",
@@ -35,7 +35,7 @@
         "label": "Full-stack Developer",
         "title": "SwiftControl",
         "imageAlt": "SwiftControl project interface",
-        "description": "I had the pleasant opportunity to participate in full-stack development projects at SwiftControl, contributing my knowledge mainly in design and innovative features applied to business logic. I also worked as a team with other developers, putting my fast and continuous development skills to the test."
+        "description": "I'm currently involved in full-stack development projects at SwiftControl, contributing my knowledge of interactive design and interfaces, as well as innovative features applied to business logic. I also collaborate with other developers as part of a team, putting my skills in rapid and continuous development to the test."
       },
       "brunchosos": {
         "label": "Web Developer",
@@ -47,8 +47,8 @@
   },
   "about": {
     "paragraph1": "I am a developer passionate about technology and innovation. Since an early age I have been fascinated by the world of software development.",
-    "paragraph2": "I love learning new technologies and facing complex challenges. In my free time, I contribute to open source projects to learn from the knowledge of the community.",
-    "paragraph3": "My goal is to create applications that not only work well, but also provide an exceptional user experience.",
+    "paragraph2": "I love learning new technologies and tackling complex challenges. I'm always aware of market needs to stay updated, as well as contributing to collaborative projects to learn from the community's knowledge.",
+    "paragraph3": "I actively participate in academic and professional projects, providing quality services and offering new growth opportunities to micro-businesses all over Colombia.",
     "stats": {
       "projects": { "value": "4+", "label": "Featured Projects" },
       "learning": { "value": "1+", "label": "Year of Experience" },
@@ -78,7 +78,7 @@
     },
     "kanban": {
       "title": "Kanban Flow",
-      "description": "Developed a Kanban-style Full Stack web application with secure authentication, complete CRUD management and Markdown content editing. Implemented advanced interactive features such as drag and drop and real-time chat with WebSockets. REST API with NestJS and TypeORM, Docker and deployment on AWS EC2. (In progress...)"
+      "description": "Developed a Kanban-style Full Stack web application with secure authentication, complete CRUD management and Markdown content editing. Implemented advanced interactive features such as drag and drop and real-time chat with WebSockets. REST API with NestJS and TypeORM, Docker and deployment on AWS EC2."
     },
     "portfolio": {
       "title": "Personal Portfolio",

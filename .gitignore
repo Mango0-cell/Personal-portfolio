@@ -12,6 +12,7 @@ node_modules
 out
 dist
 dist-ssr
+.env.local
 *.local
 *.tsbuildinfo
 
@@ -27,3 +28,4 @@ CLAUDE.md
 *.njsproj
 *.sln
 *.sw?
+

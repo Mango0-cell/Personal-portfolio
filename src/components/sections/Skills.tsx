@@ -35,6 +35,8 @@ const technologies = [
   { name: "RTK Query", color: "#764ABC" },
   { name: "Figma", color: "#F24E1E" },
   { name: "i18next", color: "#26A69A" },
+  { name: "JavaScript", color: "#8ab554" },
+
 ];
 
 const duplicated = [...technologies, ...technologies, ...technologies];
