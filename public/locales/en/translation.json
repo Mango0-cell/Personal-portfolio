@@ -62,6 +62,8 @@
   },
   "projects": {
     "scrollHint": "Scroll to explore",
+    "interactHint": "Interact with my projects",
+    "selectHint": "select one!",
     "liveDemo": "Live Demo",
     "viewCode": "View Code",
     "navidad": {

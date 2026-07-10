@@ -62,6 +62,8 @@
   },
   "projects": {
     "scrollHint": "Desplázate para explorar",
+    "interactHint": "Interactúa con mis proyectos",
+    "selectHint": "¡selecciona uno!",
     "liveDemo": "Ver Demo",
     "viewCode": "Ver Código",
     "navidad": {
