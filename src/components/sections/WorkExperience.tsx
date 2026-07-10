@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { BriefcaseBusiness, Globe } from "lucide-react";
+import { BriefcaseBusiness, ExternalLink, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import BorderGlow from "../BorderGlow";
 
@@ -15,6 +15,7 @@ const experiences = [
     icon: BriefcaseBusiness,
     colors: ["#155ea8", "#6366f1", "#c084fc"],
     objectPosition: "30% top",
+    companyUrl: "https://swiftcontrol.co",
   },
   {
     id: "brunchosos",
@@ -24,6 +25,7 @@ const experiences = [
     icon: Globe,
     colors: ["#f59e0b", "#fb7185", "#38bdf8"],
     objectPosition: "center top",
+    companyUrl: "https://brunchosos.com",
   },
 ];
 
@@ -133,9 +135,17 @@ export function WorkExperience() {
                       <p className="mb-3 text-xs font-medium uppercase tracking-[0.3em] text-white/30">
                         {t(`workExperience.items.${item.id}.label`)}
                       </p>
-                      <h3 className="mb-4 text-2xl font-bold text-white md:text-3xl">
-                        {t(`workExperience.items.${item.id}.title`)}
-                      </h3>
+                      <a
+                        href={item.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link inline-flex items-center gap-2 mb-4"
+                      >
+                        <h3 className="text-2xl font-bold text-white md:text-3xl group-hover/link:text-blue-300 transition-colors duration-200">
+                          {t(`workExperience.items.${item.id}.title`)}
+                        </h3>
+                        <ExternalLink className="w-4 h-4 text-white/30 group-hover/link:text-blue-300 transition-colors duration-200 flex-shrink-0" />
+                      </a>
                       <p className="text-sm leading-7 text-white/50 md:text-[0.95rem]">
                         {t(`workExperience.items.${item.id}.description`)}
                       </p>
