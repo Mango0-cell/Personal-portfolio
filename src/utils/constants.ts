@@ -30,14 +30,14 @@ export const portfolioData: PortfolioData = {
 
 export const experiences: ExperienceItem[] = [
     {
-        id: 'job1',
+        id: 'SwiftControl',
         translationKey: 'experience.job1',
-        companyUrl: 'https://techcompany.com'
+        companyUrl: 'https://SwiftControl.co'
     },
     {
-        id: 'job2',
+        id: 'Brunchosos',
         translationKey: 'experience.job2',
-        companyUrl: 'https://techcompany.com'
+        companyUrl: 'https://brunchosos.com'
     },
     {
         id: 'job3',
