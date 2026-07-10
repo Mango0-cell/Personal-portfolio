@@ -5,7 +5,7 @@ import { useInView } from 'motion/react';
 import { useRef } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import CardSwap, { Card } from '../CardSwap';
+import CardSwap, { Card, type CardSwapHandle } from '../CardSwap';
 import { projects } from '../../utils';
 
 const projectMeta: Record<string, { accent: string }> = {
@@ -19,6 +19,7 @@ export function Projects() {
   const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const cardSwapRef = useRef<CardSwapHandle>(null);
 
   return (
     <section id="projects" ref={ref} className="relative pt-32 pb-56 px-4 overflow-visible">
@@ -63,28 +64,35 @@ export function Projects() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="absolute left-0 top-1/2 -translate-y-1/2 w-64 max-[900px]:hidden"
           >
-            <p className="text-white/30 text-xs uppercase tracking-widest mb-4">
+            <p className="text-white/30 text-xs uppercase tracking-widest mb-5">
               {t('projects.scrollHint')}
             </p>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {projects.map((project, i) => {
                 const meta = projectMeta[project.id] ?? { accent: '#3B82F6' };
                 return (
-                  <div
+                  <button
                     key={project.id}
-                    className="flex items-center gap-3 text-white/40 hover:text-white/70 transition-colors duration-200"
+                    onClick={() => cardSwapRef.current?.bringToFront(i)}
+                    className="flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors duration-200 cursor-pointer w-full text-left group"
                   >
                     <div
-                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                      style={{ backgroundColor: meta.accent, boxShadow: `0 0 6px ${meta.accent}` }}
+                      className="w-2 h-2 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform duration-200"
+                      style={{ backgroundColor: meta.accent, boxShadow: `0 0 8px ${meta.accent}` }}
                     />
-                    <span className="text-sm">{t(`${project.translationKey}.title`)}</span>
-                    <span className="text-xs opacity-50">0{i + 1}</span>
-                  </div>
+                    <span className="text-base font-medium">{t(`${project.translationKey}.title`)}</span>
+                    <span className="text-sm opacity-50">0{i + 1}</span>
+                  </button>
                 );
               })}
             </div>
-            <p className="text-white/20 text-xs mt-6">↑ click a card to select it</p>
+            <motion.p
+              animate={{ y: [0, -6, 0] }}
+              transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+              className="text-purple-400/70 text-sm mt-7"
+            >
+              ↑ click a card to select it
+            </motion.p>
           </motion.div>
 
           {/* CardSwap stack */}
@@ -95,6 +103,7 @@ export function Projects() {
             className="relative w-full h-full"
           >
             <CardSwap
+              ref={cardSwapRef}
               width={630}
               height={460}
               cardDistance={55}

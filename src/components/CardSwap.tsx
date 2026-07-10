@@ -5,6 +5,7 @@ import React, {
   cloneElement,
   forwardRef,
   isValidElement,
+  useImperativeHandle,
   useMemo,
   useRef,
   useEffect,
@@ -13,6 +14,10 @@ import React, {
   type RefObject,
 } from 'react';
 import gsap from 'gsap';
+
+export interface CardSwapHandle {
+  bringToFront: (idx: number) => void;
+}
 
 export interface CardSwapProps {
   width?: number | string;
@@ -69,7 +74,7 @@ const placeNow = (el: HTMLElement, slot: Slot, skew: number) =>
     force3D: true,
   });
 
-const CardSwap: React.FC<CardSwapProps> = ({
+const CardSwap = forwardRef<CardSwapHandle, CardSwapProps>(({
   width = 500,
   height = 400,
   cardDistance = 60,
@@ -80,7 +85,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
   skewAmount = 6,
   easing = 'elastic',
   children,
-}) => {
+}, ref) => {
   const config = useMemo(
     () =>
       easing === 'elastic'
@@ -96,9 +101,14 @@ const CardSwap: React.FC<CardSwapProps> = ({
   const order = useRef<number[]>(Array.from({ length: cardCount }, (_, i) => i));
   const tlRef = useRef<gsap.core.Timeline | null>(null);
   const intervalRef = useRef<number>(0);
+  const holdTimeoutRef = useRef<number>(0);
   const container = useRef<HTMLDivElement>(null);
   const swapRef = useRef<(() => void) | null>(null);
   const bringToFrontRef = useRef<((idx: number) => void) | null>(null);
+
+  useImperativeHandle(ref, () => ({
+    bringToFront: (idx: number) => bringToFrontRef.current?.(idx),
+  }));
 
   useEffect(() => {
     const total = refs.length;
@@ -136,13 +146,17 @@ const CardSwap: React.FC<CardSwapProps> = ({
 
       tlRef.current?.kill();
       clearInterval(intervalRef.current);
+      clearTimeout(holdTimeoutRef.current);
 
       const newOrder = [targetCardIdx, ...order.current.filter(i => i !== targetCardIdx)];
 
       const tl = gsap.timeline({
         onComplete: () => {
           order.current = newOrder;
-          intervalRef.current = window.setInterval(swapRef.current!, delay);
+          // Hold the selected card at front for 8s before resuming auto-swap
+          holdTimeoutRef.current = window.setTimeout(() => {
+            intervalRef.current = window.setInterval(swapRef.current!, delay);
+          }, 8000);
         },
       });
       tlRef.current = tl;
@@ -173,9 +187,13 @@ const CardSwap: React.FC<CardSwapProps> = ({
         node.removeEventListener('mouseenter', pause);
         node.removeEventListener('mouseleave', resume);
         clearInterval(intervalRef.current);
+        clearTimeout(holdTimeoutRef.current);
       };
     }
-    return () => clearInterval(intervalRef.current);
+    return () => {
+      clearInterval(intervalRef.current);
+      clearTimeout(holdTimeoutRef.current);
+    };
   }, [cardDistance, verticalDistance, config, delay, pauseOnHover, refs, skewAmount]);
 
   // CardSwap owns these element refs for GSAP positioning; they are passed through
@@ -205,6 +223,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
       {rendered}
     </div>
   );
-};
+});
+CardSwap.displayName = 'CardSwap';
 
 export default CardSwap;
